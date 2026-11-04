@@ -148,90 +148,19 @@ dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}d
 .logo-card:not(.in) .logo-animado *{animation-play-state:paused}
 /* PREGUNTAS */
 .ask{padding:110px 0}
-.box{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px;display:grid;gap:22px}
-.box label.t{font:700 .95rem "Bricolage Grotesque",sans-serif;display:block;margin-bottom:10px}
-.opts{display:flex;flex-wrap:wrap;gap:10px}
-.opts input{position:absolute;opacity:0;pointer-events:none}
-.opts span{display:inline-block;font:600 1rem "Bricolage Grotesque",sans-serif;padding:10px 20px;border-radius:999px;border:2px solid var(--line);cursor:pointer;transition:transform .2s,background .25s,color .25s}
-.opts span:hover{transform:translateY(-2px)}
-.opts input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
-.opts input:focus-visible+span{outline:3px solid var(--rose);outline-offset:3px}
-.box input[type=text],.box input[type=email],.box textarea{width:100%;font:inherit;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--text);transition:border-color .25s}
-.box input[type=text]:focus,.box input[type=email]:focus,.box textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(0,153,255,.25);outline:none}
-.box textarea{min-height:170px;resize:vertical}
-#idBox{display:none;gap:16px}#idBox.show{display:grid;animation:pop .4s both}
-.note{color:var(--muted);font-size:.9rem;margin:0}
-#msgStatus{font-weight:600;min-height:1.5em;margin:0}
-#sendBtn{border:0;cursor:pointer;justify-self:start;opacity:1;background:var(--rose);color:#fff}
-#sendBtn:disabled{opacity:.6;cursor:wait}
-:root{--err:#b3261e;--ok:#0a7a3d}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--err:#ff9a90;--ok:#6fdc9b}}
-:root[data-theme="dark"]{--err:#ff9a90;--ok:#6fdc9b}
-.box form{display:grid;gap:22px}.box [hidden]{display:none!important}
-.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-.hint{color:var(--muted);font-size:.9rem;margin:10px 0 0}
-.cnt{color:var(--muted);font-size:.85rem;text-align:right;margin:4px 0 0}
-.box .fld-err{border-color:var(--err)}
-#msgStatus.err{color:var(--err)}#msgStatus.ok{color:var(--ok)}
-.priv{color:var(--muted);font-size:.9rem}.priv summary{cursor:pointer;font:600 .95rem "Bricolage Grotesque",sans-serif;color:var(--text)}
-.priv ul{margin:10px 0 0;padding-left:1.2em;display:grid;gap:6px}
-#done{text-align:center;padding:10px 0;display:grid;gap:14px;justify-items:center}#done h3{margin:0;font-size:1.8rem}#done p{margin:0}
 /* CTA */
 .cta{text-align:center;padding:120px 20px;background:var(--amber);color:var(--ink);overflow:hidden}
 .cta h2{font-size:clamp(2.6rem,11vw,6rem);margin-bottom:22px}
 .cta .btn{background:var(--ink);color:#fff}
 footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.95rem}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
-
-/* ===== PANEL DE ADMINISTRACIÓN: capa que se abre con tu-web/#admin (no visible en la web normal) ===== */
-#adm{position:fixed;inset:0;z-index:200;overflow-y:auto;background:var(--bg);color:var(--text);font:17px/1.55 "Source Serif 4",Georgia,serif;--olive:#7d8a06}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #adm{--olive:#c9d86a}}
-:root[data-theme="dark"] #adm{--olive:#c9d86a}
-#adm[hidden],#adm [hidden]{display:none!important}
-#adm *{box-sizing:border-box}
-#adm :focus-visible{outline:3px solid var(--rose);outline-offset:3px}
-#adm h1,#adm h3,#adm .sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
-#adm h1{font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0 0 8px;letter-spacing:-.02em}
-#adm .ad-bar{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px}
-#adm .ad-bar b{font:800 1.05rem "Bricolage Grotesque",sans-serif}
-#adm .ad-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-#adm .ad-wrap{max-width:900px;margin:0 auto;padding:28px 20px 80px}
-#adm .ad-sub{color:var(--muted);margin:0 0 24px}
-#adm .ad-btn{display:inline-block;background:var(--amber);color:var(--ink);font:700 .95rem "Bricolage Grotesque",sans-serif;padding:11px 22px;border-radius:999px;border:0;cursor:pointer;text-decoration:none}
-#adm .ad-btn:disabled{opacity:.6;cursor:wait}
-#adm .ad-btn.ad-sec{background:transparent;color:inherit;border:2px solid currentColor}
-#adm .ad-btn.ad-danger{background:transparent;color:var(--err);border:2px solid var(--err)}
-#adm .ad-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px}
-#adm #ad-login{max-width:440px;margin:40px auto 0;display:grid;gap:18px}
-#adm label.ad-t{font:700 .95rem "Bricolage Grotesque",sans-serif;display:block;margin-bottom:8px}
-#adm input[type=email],#adm input[type=password]{width:100%;font:inherit;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--text)}
-#adm input:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(0,153,255,.25);outline:none}
-#adm .ad-st{font-weight:600;min-height:1.5em;margin:0}#adm .ad-st.err{color:var(--err)}#adm .ad-st.ok{color:var(--ok)}
-#adm .ad-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
-#adm .ad-chip{font:600 .95rem "Bricolage Grotesque",sans-serif;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--text);cursor:pointer}
-#adm .ad-chip[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
-#adm .ad-spacer{flex:1}
-#adm #ad-list{display:grid;gap:14px}
-#adm .ad-p{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:16px;overflow:hidden}
-#adm .ad-p summary{list-style:none;cursor:pointer;padding:16px 18px;display:grid;gap:6px}
-#adm .ad-p summary::-webkit-details-marker{display:none}
-#adm .ad-p summary h3{margin:0;font-size:1.15rem;line-height:1.3}
-#adm .ad-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:600 .82rem "Bricolage Grotesque",sans-serif;color:var(--muted)}
-#adm .ad-badge{display:inline-block;padding:2px 10px;border-radius:999px;border:1.5px solid currentColor;font:700 .78rem "Bricolage Grotesque",sans-serif}
-#adm .ad-badge.pending{color:var(--rose)}#adm .ad-badge.reviewed{color:var(--olive)}#adm .ad-badge.resolved{color:var(--muted)}
-#adm .ad-inner{padding:4px 18px 18px;display:grid;gap:16px;border-top:1px solid var(--line)}
-#adm .ad-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:14px 0 0}
-#adm .ad-who{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.95rem;overflow-wrap:anywhere}
-#adm .ad-who a{color:var(--rose);font-weight:600}
-#adm .ad-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-#adm .ad-empty{color:var(--muted)}
 </style>
 </head>
 <body>
 <nav id="nav">
   <a class="brand" href="#top"><svg viewBox="8 2 74 80" aria-hidden="true"><path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="#E0F354"/><g stroke="#04264a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M45 13V68M34 18L43 68M56 18L47 68M24 28L40 68M66 28L50 68M17 41L38 68M73 41L52 68"/></g></svg>Universitarios Sarrià</a>
   <button class="burger" id="bg" aria-label="Menú"><i></i><i></i></button>
-  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Propuestas</a></div>
+  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Preguntas y propuestas</a></div>
 </nav>
 
 <header class="hero" id="top">
@@ -324,41 +253,9 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 </div></section>
 
 <section id="preguntas" class="ask"><div class="wrap">
-  <h2 class="rv up">Banco de propuestas y preguntas</h2>
-  <p class="sub rv up">¿Tienes una idea, una propuesta o una duda para el grupo? Cuéntanosla. Solo la lee la persona que lleva el grupo.</p>
-  <div class="box rv sc">
-    <form id="pf" novalidate>
-      <div><label class="t" for="ttl">Título</label><input type="text" id="ttl" maxlength="150" autocomplete="off" placeholder="Resume tu propuesta o pregunta en una frase" required></div>
-      <div><label class="t" for="msg">Cuéntanos más</label><textarea id="msg" maxlength="5000" placeholder="Explica tu idea, propuesta o pregunta con todo el detalle que quieras" required></textarea><p class="cnt" id="cnt" aria-hidden="true">0 / 5000</p></div>
-      <div><span class="t sans" style="font-weight:700;display:block;margin-bottom:10px">¿Cómo quieres enviarlo?</span>
-        <div class="opts" role="radiogroup" aria-label="Tipo de envío"><label><input type="radio" name="who" value="anon" checked><span>Anónimo</span></label><label><input type="radio" name="who" value="name"><span>Con mis datos</span></label></div>
-        <p class="hint" id="whoHint"></p></div>
-      <div id="idBox">
-        <div><label class="t" for="nm">Tu nombre</label><input type="text" id="nm" maxlength="100" autocomplete="name" placeholder="Escribe tu nombre" disabled></div>
-        <div><label class="t" for="em">Tu correo electrónico</label><input type="email" id="em" maxlength="254" autocomplete="email" placeholder="tucorreo@ejemplo.com" disabled></div>
-      </div>
-      <div class="hp" aria-hidden="true"><label>No rellenar este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <div id="tsBox"></div>
-      <button class="btn" id="sendBtn" type="submit">Enviar</button>
-      <p id="msgStatus" role="status" aria-live="polite"></p>
-      <p class="note">Tu mensaje es privado: no se publica y solo lo lee la persona que lleva el grupo.</p>
-      <details class="priv"><summary>Cómo tratamos tus datos</summary>
-        <ul>
-          <li><strong>Quién lo lee:</strong> solo la persona que administra el grupo. Las propuestas no se publican ni las ven otros visitantes.</li>
-          <li><strong>Qué guardamos:</strong> el título, el mensaje y la fecha de envío. Si eliges «Con mis datos», también tu nombre y tu correo, únicamente para poder responderte.</li>
-          <li><strong>Si eliges «Anónimo»:</strong> no te pedimos ni guardamos nombre ni correo, y no vinculamos el mensaje a ninguna identidad.</li>
-          <li><strong>Contra el spam:</strong> usamos Cloudflare Turnstile para comprobar que eres una persona (Cloudflare puede tratar datos técnicos de tu navegador) y un contador temporal con una huella cifrada de tu conexión, que no se asocia a tu mensaje y se borra en pocos días. No guardamos tu dirección IP.</li>
-          <li><strong>Cuánto tiempo:</strong> el necesario para atender tu propuesta; después se elimina.</li>
-          <li><strong>Tus derechos:</strong> si te identificaste y quieres consultar o borrar tus datos, díselo a la persona que lleva el grupo.</li>
-        </ul>
-      </details>
-    </form>
-    <div id="done" hidden>
-      <h3 tabindex="-1">¡Enviado! Gracias</h3>
-      <p>Hemos recibido tu mensaje. Solo lo leerá la persona que lleva el grupo.</p>
-      <button class="btn" id="again" type="button">Enviar otro mensaje</button>
-    </div>
-  </div>
+  <h2 class="rv up">Preguntas y propuestas</h2>
+  <p class="sub rv up">¿Tienes una duda o una idea para el grupo? Cuéntanosla.</p>
+  <a class="btn mag rv up" href="https://forms.gle/JpWRZJjb5nPm1MhR8" target="_blank" rel="noopener">Enviar una pregunta o propuesta</a>
 </div></section>
 
 <section class="cta"><h2 class="rv up">Ven un viernes.</h2><a class="btn mag rv up" href="#calendario">Ver próximas fechas</a></section>
@@ -366,41 +263,6 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 <dialog id="dlg"></dialog>
 <footer>Hecho para Universitarios Sarrià. Ven como eres.</footer>
 
-<div id="adm" hidden>
-  <header class="ad-bar"><b>Universitarios Sarrià · Panel</b><span class="ad-links"><a class="ad-btn ad-sec" href="#top">Volver a la web</a><button class="ad-btn ad-sec" id="ad-out" type="button" hidden>Cerrar sesión</button></span></header>
-  <main class="ad-wrap">
-    <section id="ad-login" class="ad-card" hidden>
-      <div><h1>Acceso de administrador</h1><p class="ad-sub" style="margin:0">Solo para quien lleva el grupo.</p></div>
-      <form id="ad-lf" style="display:grid;gap:18px" novalidate>
-        <div><label class="ad-t" for="ad-em">Correo electrónico</label><input type="email" id="ad-em" autocomplete="username" required></div>
-        <div><label class="ad-t" for="ad-pw">Contraseña</label><input type="password" id="ad-pw" autocomplete="current-password" required></div>
-        <button class="ad-btn" id="ad-go" type="submit" style="justify-self:start">Entrar</button>
-        <p class="ad-st" id="ad-lst" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-    <section id="ad-panel" hidden>
-      <h1>Propuestas recibidas</h1>
-      <p class="ad-sub">Privadas: solo tú puedes verlas desde esta sesión.</p>
-      <div class="ad-tools" id="ad-chips"></div>
-      <p class="ad-st" id="ad-pst" role="status" aria-live="polite"></p>
-      <div id="ad-list"></div>
-    </section>
-  </main>
-</div>
-<!-- ===================== CONFIGURACIÓN (valores PÚBLICOS) =====================
-     Edita solo estas 3 líneas con tus datos (ver SETUP.md, paso 5).
-     Aquí NUNCA van claves secretas: todo lo que hay en este archivo lo puede ver cualquiera.
-       · SUPABASE_URL ............... Supabase > Project Settings > API > Project URL
-       · SUPABASE_PUBLISHABLE_KEY ... Supabase > API Keys > Publishable key (empieza por sb_publishable_)
-       · TURNSTILE_SITE_KEY ......... Cloudflare > Turnstile > tu widget > Site key
-============================================================================== -->
-<script>
-window.SITE_CONFIG={
-  SUPABASE_URL:"https://REEMPLAZA.supabase.co",
-  SUPABASE_PUBLISHABLE_KEY:"sb_publishable_REEMPLAZA",
-  TURNSTILE_SITE_KEY:"REEMPLAZA"
-};
-</script>
 <script>
 var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -475,60 +337,6 @@ var BOOKS=[
 ];
 document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#0099FF","#0077c2","#7d8a06","#0055b3"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
   return '<a class="bk rv up" style="--c:'+c+';transition-delay:'+(i%4*.08)+'s" href="'+esc(b.u)+'" target="_blank" rel="noopener"'+(ext?'':' download')+'><i>'+pad(i+1)+'</i><div><h3>'+esc(b.t)+'</h3><p>'+esc(b.d)+'</p><b>Descargar</b></div></a>'}).join("");
-// Banco de propuestas y preguntas: envío privado a la función "submit-proposal".
-// Aquí NO hay claves secretas ni correos: solo la URL pública y la clave pública de Turnstile (bloque de configuración).
-var CFG=window.SITE_CONFIG||{};
-function cfgOk(){var u=CFG.SUPABASE_URL||"",k=CFG.TURNSTILE_SITE_KEY||"";
-  return /^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/.test(u)&&u.indexOf("REEMPLAZA")<0&&!!k&&k.indexOf("REEMPLAZA")<0}
-(function(){
-  var f=document.getElementById("pf");if(!f)return;
-  function $(id){return document.getElementById(id)}
-  var st=$("msgStatus"),btn=$("sendBtn"),idBox=$("idBox"),hint=$("whoHint"),ttl=$("ttl"),msg=$("msg"),nm=$("nm"),em=$("em"),cnt=$("cnt"),done=$("done"),tsEl=$("tsBox"),tsId=null,busy=false;
-  var HINT={anon:"No te pediremos ni guardaremos tu nombre ni tu correo.",name:"Guardaremos tu nombre y tu correo solo para poder responderte."};
-  function L(s){return Array.from(s).length}
-  function mode(){return document.querySelector('input[name="who"]:checked').value==="name"?"identified":"anonymous"}
-  function say(t,c){st.textContent=t;st.className=c||""}
-  function mark(el,on){el.classList.toggle("fld-err",!!on);if(on)el.setAttribute("aria-invalid","true");else el.removeAttribute("aria-invalid")}
-  function sync(){
-    var id=mode()==="identified";
-    idBox.classList.toggle("show",id);nm.disabled=!id;em.disabled=!id;
-    if(!id){nm.value="";em.value="";mark(nm,0);mark(em,0)}
-    hint.textContent=id?HINT.name:HINT.anon;
-  }
-  document.querySelectorAll('input[name="who"]').forEach(function(r){r.addEventListener("change",sync)});sync();
-  msg.addEventListener("input",function(){cnt.textContent=L(msg.value)+" / 5000"});
-  if(!cfgOk()){btn.disabled=true;say("Este formulario todavía no está conectado. Avisa a la persona que lleva el grupo.","err")}
-  else{
-    var s=document.createElement("script");s.src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";s.async=true;s.defer=true;
-    s.onload=function(){tsId=window.turnstile.render(tsEl,{sitekey:CFG.TURNSTILE_SITE_KEY,language:"es",theme:"auto"})};
-    s.onerror=function(){say("No se ha podido cargar la comprobación de seguridad. Desactiva el bloqueador de contenido o inténtalo más tarde.","err")};
-    document.head.appendChild(s);
-  }
-  f.addEventListener("submit",function(e){
-    e.preventDefault();if(busy||!cfgOk())return;
-    [ttl,msg,nm,em].forEach(function(x){mark(x,0)});
-    var m=mode(),t=ttl.value.trim(),b=msg.value.trim(),n=nm.value.trim(),c=em.value.trim(),bad=null,why="";
-    if(L(t)<3||L(t)>150){bad=ttl;why="Escribe un título (entre 3 y 150 caracteres)."}
-    else if(L(b)<10||L(b)>5000){bad=msg;why="Cuéntanos tu propuesta o pregunta (mínimo 10 caracteres)."}
-    else if(m==="identified"&&!n){bad=nm;why="Escribe tu nombre o elige el envío anónimo."}
-    else if(m==="identified"&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)){bad=em;why="Escribe un correo electrónico válido o elige el envío anónimo."}
-    if(bad){mark(bad,1);say(why,"err");bad.focus();return}
-    var tok=(tsId!==null&&window.turnstile)?window.turnstile.getResponse(tsId):"";
-    if(!tok){say("Completa la comprobación de seguridad antes de enviar.","err");return}
-    var p={title:t,body:b,mode:m,turnstileToken:tok,website:f.elements.website.value};
-    if(m==="identified"){p.name=n;p.email=c}   // en modo anónimo ni se envían
-    busy=true;btn.disabled=true;say("Enviando…");
-    fetch(CFG.SUPABASE_URL.replace(/\/+$/,"")+"/functions/v1/submit-proposal",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p),credentials:"omit",referrerPolicy:"no-referrer"})
-    .then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok&&d.ok===true,d:d}})})
-    .then(function(x){
-      if(x.ok){f.hidden=true;done.hidden=false;f.reset();sync();cnt.textContent="0 / 5000";say("");done.querySelector("h3").focus()}
-      else{say(x.d.error||"No se ha podido enviar. Inténtalo de nuevo.","err");var fl={title:ttl,body:msg,name:nm,email:em}[x.d.field];if(fl){mark(fl,1);fl.focus()}}
-    })
-    .catch(function(){say("No se ha podido conectar. Revisa tu conexión e inténtalo de nuevo.","err")})
-    .then(function(){busy=false;btn.disabled=!cfgOk();if(tsId!==null&&window.turnstile)window.turnstile.reset(tsId)});
-  });
-  $("again").addEventListener("click",function(){done.hidden=true;f.hidden=false;ttl.focus()});
-})();
 // Marquesina
 var t="Fe ✦ Comunidad ✦ Universidad ✦ Amistad ✦ Oración ✦ ";document.getElementById("mq").textContent=t.repeat(8);
 // Manifiesto palabra a palabra
@@ -567,163 +375,6 @@ if(!RM&&matchMedia("(hover:hover)").matches){
   });
   document.addEventListener("mouseout",function(e){var c=e.target.closest&&e.target.closest(".tilt");if(c)c.style.transform=""});
 }
-</script>
-<script>
-(function(){
-"use strict";
-var CFG=window.SITE_CONFIG||{},BASE=String(CFG.SUPABASE_URL||"").replace(/\/+$/,""),KEY=String(CFG.SUPABASE_PUBLISHABLE_KEY||"");
-var CONFIGURED=/^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/.test(BASE)&&BASE.indexOf("REEMPLAZA")<0&&!!KEY&&KEY.indexOf("REEMPLAZA")<0;
-var SK="sarria_admin_session",IDLE_MS=30*60*1000;
-var sess=null,items=[],filter="all",idleT=null,busy=false,OPEN={};
-var STATUS={pending:"Pendiente",reviewed:"Revisada",resolved:"Resuelta"};
-var COLOR={pending:"var(--rose)",reviewed:"var(--olive)",resolved:"var(--muted)"};
-var UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-function $(id){return document.getElementById(id)}
-// Todo el contenido de las propuestas es texto de desconocidos: SIEMPRE textContent, nunca innerHTML.
-function el(tag,attrs,kids){var n=document.createElement(tag);for(var k in(attrs||{})){if(k==="text")n.textContent=attrs[k];else n.setAttribute(k,attrs[k])}
-  (kids||[]).forEach(function(c){n.appendChild(typeof c==="string"?document.createTextNode(c):c)});return n}
-function say(id,t,c){var n=$(id);n.textContent=t||"";n.className="ad-st"+(c?" "+c:"")}
-
-// ---- sesión (solo sessionStorage: se borra al cerrar la pestaña) ----------
-try{sess=JSON.parse(sessionStorage.getItem(SK)||"null")}catch(e){sess=null}
-function save(d){sess={a:d.access_token,r:d.refresh_token,e:Date.now()+Math.max(30,(d.expires_in||3600)-30)*1000};try{sessionStorage.setItem(SK,JSON.stringify(sess))}catch(e){}}
-function clear(){sess=null;items=[];OPEN={};try{sessionStorage.removeItem(SK)}catch(e){}}
-function view(name){$("ad-login").hidden=name!=="login";$("ad-panel").hidden=name!=="panel";$("ad-out").hidden=name!=="panel"}
-
-async function authCall(path,body,bearer){
-  var h={apikey:KEY,"Content-Type":"application/json"};if(bearer)h.Authorization="Bearer "+bearer;
-  return fetch(BASE+path,{method:"POST",headers:h,body:JSON.stringify(body||{}),cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer"});
-}
-async function refresh(){
-  if(!sess||!sess.r)return false;
-  try{var r=await authCall("/auth/v1/token?grant_type=refresh_token",{refresh_token:sess.r});
-    var d=await r.json().catch(function(){return{}});
-    if(!r.ok||!d.access_token){return false}save(d);return true}catch(e){return false}
-}
-async function endSession(msg,kind){
-  var t=sess&&sess.a;clear();clearTimeout(idleT);
-  if(t){try{await authCall("/auth/v1/logout?scope=local",{},t)}catch(e){}}
-  $("ad-list").textContent="";$("ad-chips").textContent="";view("login");say("ad-lst",msg||"",kind);
-}
-async function api(method,path,body,extra,retried){
-  if(!sess)throw new Error("auth");
-  if(Date.now()>sess.e&&!(await refresh())){await endSession("La sesión ha caducado. Vuelve a entrar.","err");throw new Error("auth")}
-  var h={apikey:KEY,Authorization:"Bearer "+sess.a};for(var k in(extra||{}))h[k]=extra[k];
-  if(body!==undefined)h["Content-Type"]="application/json";
-  var r=await fetch(BASE+path,{method:method,headers:h,body:body===undefined?undefined:JSON.stringify(body),cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer"});
-  if(r.status===401){
-    if(!retried&&await refresh())return api(method,path,body,extra,true);
-    await endSession("La sesión ha caducado. Vuelve a entrar.","err");throw new Error("auth");
-  }
-  if(!r.ok)throw new Error("http "+r.status);
-  return r.status===204?null:r.json();
-}
-
-// ---- inactividad ---------------------------------------------------------
-function bump(){clearTimeout(idleT);if(sess)idleT=setTimeout(function(){endSession("Sesión cerrada por inactividad.")},IDLE_MS)}
-["pointerdown","keydown"].forEach(function(ev){addEventListener(ev,bump,{passive:true})});
-
-// ---- acceso --------------------------------------------------------------
-$("ad-lf").addEventListener("submit",async function(e){
-  e.preventDefault();if(busy)return;
-  var em=$("ad-em").value.trim(),pw=$("ad-pw").value;
-  if(!em||!pw){say("ad-lst","Escribe tu correo y tu contraseña.","err");return}
-  busy=true;$("ad-go").disabled=true;say("ad-lst","Entrando…");
-  try{
-    var r=await authCall("/auth/v1/token?grant_type=password",{email:em,password:pw});
-    var d=await r.json().catch(function(){return{}});
-    if(!r.ok||!d.access_token){say("ad-lst",(r.status===400||r.status===401||r.status===422)?"Correo o contraseña incorrectos.":"No se ha podido iniciar sesión. Inténtalo más tarde.","err");return}
-    save(d);$("ad-pw").value="";
-    // Comprobación en el servidor: ¿esta cuenta está en la tabla "admins"?
-    var ok=await api("POST","/rest/v1/rpc/is_admin",{});
-    if(ok!==true){await endSession("Esta cuenta no tiene permisos de administrador.","err");return}
-    say("ad-lst","");await enter();
-  }catch(err){if(String(err.message)!=="auth")say("ad-lst","No se ha podido conectar. Inténtalo de nuevo.","err")}
-  finally{busy=false;$("ad-go").disabled=false}
-});
-$("ad-out").addEventListener("click",function(){endSession("Sesión cerrada.","ok")});
-
-// ---- datos ---------------------------------------------------------------
-async function load(){
-  say("ad-pst","Cargando…");
-  try{
-    items=await api("GET","/rest/v1/proposals?select=id,created_at,title,body,is_anonymous,author_name,author_email,status&order=created_at.desc&limit=1000");
-    say("ad-pst","");render();
-  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se han podido cargar las propuestas.","err")}
-}
-async function enter(){view("panel");bump();await load()}
-
-async function setStatus(p,s){
-  if(!UUID.test(p.id)||p.status===s)return;
-  try{
-    var rows=await api("PATCH","/rest/v1/proposals?id=eq."+p.id,{status:s},{Prefer:"return=representation"});
-    if(!Array.isArray(rows)||rows.length!==1)throw new Error("noop");
-    p.status=rows[0].status;say("ad-pst","Marcada como "+STATUS[p.status].toLowerCase()+".","ok");render(p.id);
-  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se ha podido cambiar el estado.","err")}
-}
-async function remove(p){
-  if(!UUID.test(p.id))return;
-  if(!confirm("¿Eliminar esta propuesta para siempre?\n\n«"+p.title+"»\n\nNo se puede deshacer."))return;
-  try{
-    var rows=await api("DELETE","/rest/v1/proposals?id=eq."+p.id,undefined,{Prefer:"return=representation"});
-    if(!Array.isArray(rows)||rows.length!==1)throw new Error("noop");
-    items=items.filter(function(x){return x.id!==p.id});say("ad-pst","Propuesta eliminada.","ok");render();
-  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se ha podido eliminar.","err")}
-}
-
-// ---- pintado -------------------------------------------------------------
-function fmt(iso){try{return new Date(iso).toLocaleString("es-ES",{dateStyle:"medium",timeStyle:"short"})}catch(e){return iso}}
-function render(openId){
-  var chips=$("ad-chips");chips.textContent="";
-  var counts={all:items.length,pending:0,reviewed:0,resolved:0};items.forEach(function(p){if(counts[p.status]!==undefined)counts[p.status]++});
-  [["all","Todas"],["pending","Pendientes"],["reviewed","Revisadas"],["resolved","Resueltas"]].forEach(function(c){
-    var b=el("button",{type:"button","class":"ad-chip","aria-pressed":String(filter===c[0]),text:c[1]+" ("+counts[c[0]]+")"});
-    b.addEventListener("click",function(){filter=c[0];render()});chips.appendChild(b)});
-  chips.appendChild(el("span",{"class":"ad-spacer"}));
-  var rb=el("button",{type:"button","class":"ad-btn ad-sec",text:"Actualizar"});rb.addEventListener("click",load);chips.appendChild(rb);
-
-  var list=$("ad-list");list.textContent="";
-  var vis=items.filter(function(p){return filter==="all"||p.status===filter});
-  if(!vis.length){list.appendChild(el("p",{"class":"ad-empty",text:items.length?"No hay propuestas en este estado.":"Todavía no has recibido ninguna propuesta."}));return}
-  vis.forEach(function(p){
-    var d=el("details",{"class":"ad-p"});d.style.setProperty("--c",COLOR[p.status]||"var(--line)");if(OPEN[p.id]||p.id===openId)d.open=true;
-    d.addEventListener("toggle",function(){if(d.open)OPEN[p.id]=1;else delete OPEN[p.id]});
-    d.appendChild(el("summary",{},[
-      el("div",{"class":"ad-meta"},[fmt(p.created_at),el("span",{"class":"ad-badge"+p.status,text:STATUS[p.status]||p.status}),el("span",{"class":"ad-badge",text:p.is_anonymous?"Anónima":"Identificada"})]),
-      el("h3",{text:p.title})]));
-    var inner=el("div",{"class":"ad-inner"});
-    inner.appendChild(el("p",{"class":"ad-body",text:p.body}));
-    if(p.is_anonymous){inner.appendChild(el("div",{"class":"ad-who",text:"Envío anónimo: no hay datos de contacto."}))}
-    else{
-      var a=el("a",{text:p.author_email||""});a.href="mailto:"+encodeURIComponent(p.author_email||"").replace(/%40/g,"@");
-      inner.appendChild(el("div",{"class":"ad-who"},[el("strong",{text:"Nombre: "}),String(p.author_name||""),el("br"),el("strong",{text:"Correo: "}),a]))}
-    var acts=el("div",{"class":"ad-acts"},[el("strong",{"class":"ad-sans",text:"Estado:"})]);
-    Object.keys(STATUS).forEach(function(s){
-      var b=el("button",{type:"button","class":"ad-chip","aria-pressed":String(p.status===s),text:STATUS[s]});
-      b.addEventListener("click",function(){setStatus(p,s)});acts.appendChild(b)});
-    acts.appendChild(el("span",{"class":"ad-spacer"}));
-    var del=el("button",{type:"button","class":"ad-btn ad-danger",text:"Eliminar"});del.addEventListener("click",function(){remove(p)});acts.appendChild(del);
-    inner.appendChild(acts);d.appendChild(inner);list.appendChild(d);
-  });
-}
-
-// ---- arranque y enrutado: el panel se abre con la dirección  tu-web/#admin ----
-async function boot(){
-  if(!CONFIGURED){view("login");$("ad-go").disabled=true;say("ad-lst","El panel aún no está conectado: completa el bloque de configuración de index.html (ver SETUP.md).","err");return}
-  if(sess){
-    try{var ok=await api("POST","/rest/v1/rpc/is_admin",{});if(ok===true){await enter();return}await endSession("Esta cuenta no tiene permisos de administrador.","err");return}
-    catch(e){if(String(e.message)==="auth")return}
-  }
-  view("login");
-}
-var started=false;
-function route(){
-  var on=location.hash==="#admin",box=document.getElementById("adm");
-  box.hidden=!on;document.documentElement.style.overflow=on?"hidden":"";
-  if(on){if(!started){started=true;boot()}else box.scrollTop=0}
-}
-addEventListener("hashchange",route);route();
-})();
 </script>
 </body>
 </html>
