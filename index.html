@@ -6,10 +6,10 @@
 <title>Universitarios Sarrià</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#14173a;--bg:#f7f5fb;--card:#fff;--text:#22244a;--muted:#5d607f;--amber:#f2b63c;--rose:#c8456b;--teal:#2a9d8f;--vio:#6a5acd;--line:#dcd9ea;
+:root{--ink:#04264a;--bg:#FDFDFE;--card:#fff;--text:#0a2a4a;--muted:#486680;--amber:#E0F354;--rose:#0099FF;--teal:#0077c2;--vio:#66c2ff;--line:#d3e3f0;
 box-sizing:border-box}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1230;--card:#181c46;--text:#eceaf8;--muted:#a3a6cc;--line:#2d3270}}
-:root[data-theme="dark"]{--bg:#0f1230;--card:#181c46;--text:#eceaf8;--muted:#a3a6cc;--line:#2d3270}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#031d38;--card:#082f57;--text:#eef6fd;--muted:#9fc1de;--line:#144a7a}}
+:root[data-theme="dark"]{--bg:#031d38;--card:#082f57;--text:#eef6fd;--muted:#9fc1de;--line:#144a7a}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:18px/1.6 "Source Serif 4",Georgia,serif;overflow-x:hidden}
@@ -17,7 +17,7 @@ h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
 a{color:inherit}:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 /* NAV */
 nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px;color:#fff;transition:background .4s,transform .4s}
-nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(20,23,58,.88);backdrop-filter:blur(10px);opacity:0;transition:opacity .4s}
+nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(4,38,74,.88);backdrop-filter:blur(10px);opacity:0;transition:opacity .4s}
 nav.solid::before{opacity:1}
 nav.hide{transform:translateY(-100%)}
 .brand{font:800 1.05rem "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
@@ -35,9 +35,9 @@ nav.hide{transform:translateY(-100%)}
 .links a{font-size:2rem}.open .links{transform:none;visibility:visible;transition-delay:0s}}
 /* HERO */
 .hero{background:var(--ink);color:#fff;min-height:100svh;display:grid;place-items:center;text-align:center;padding:90px 20px 80px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg at 50% 40%,transparent 0 8%,rgba(242,182,60,.2) 10%,transparent 14% 30%,rgba(200,69,107,.18) 33%,transparent 37% 55%,rgba(42,157,143,.2) 58%,transparent 62% 80%,rgba(106,90,205,.2) 83%,transparent 88%);animation:spin 70s linear infinite}
+.hero::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg at 50% 40%,transparent 0 8%,rgba(224,243,84,.2) 10%,transparent 14% 30%,rgba(0,153,255,.18) 33%,transparent 37% 55%,rgba(0,119,194,.2) 58%,transparent 62% 80%,rgba(102,194,255,.2) 83%,transparent 88%);animation:spin 70s linear infinite}
 .hero>div{position:relative}
-.win{width:min(62vw,300px);margin:0 auto 26px;filter:drop-shadow(0 0 50px rgba(242,182,60,.5))}
+.win{width:min(62vw,300px);margin:0 auto 26px;filter:drop-shadow(0 0 50px rgba(224,243,84,.5))}
 .win svg{width:100%;display:block;animation:spin 90s linear infinite}
 .petal{transform-origin:100px 100px;opacity:0;animation:glow .8s ease-out forwards}
 @keyframes glow{from{opacity:0;transform:rotate(var(--r)) scale(.2)}to{opacity:1;transform:rotate(var(--r)) scale(1)}}
@@ -47,10 +47,10 @@ nav.hide{transform:translateY(-100%)}
 .ln span{display:inline-block;transform:translateY(110%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
 .ln:nth-child(2) span{animation-delay:.2s;color:var(--amber)}.ln:nth-child(3) span{animation-delay:.4s}
 @keyframes up{to{transform:none}}
-.hero p{max-width:30em;margin:0 auto 28px;color:#d6d4ee;opacity:0;animation:fade 1s 1.3s forwards}
+.hero p{max-width:30em;margin:0 auto 28px;color:#cfe6f7;opacity:0;animation:fade 1s 1.3s forwards}
 @keyframes fade{to{opacity:1}}
 .btn{display:inline-block;background:var(--amber);color:var(--ink);font:700 1rem "Bricolage Grotesque",sans-serif;padding:15px 30px;border-radius:999px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;will-change:transform}
-.btn:hover{box-shadow:0 10px 30px rgba(242,182,60,.45)}
+.btn:hover{box-shadow:0 10px 30px rgba(224,243,84,.45)}
 .fl{position:absolute;color:var(--amber);opacity:.7;animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-22px) rotate(12deg)}}
 .cue{position:absolute;bottom:22px;left:50%;width:2px;height:44px;background:linear-gradient(var(--amber),transparent);transform-origin:top;animation:cue 2s ease-in-out infinite}
@@ -73,9 +73,9 @@ h2{font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;margin:0 0 10px;letter-spac
 .ph{position:relative;border-radius:20px;overflow:hidden;min-height:240px;display:flex;align-items:flex-end;padding:18px;color:#fff;font:800 1.5rem "Bricolage Grotesque",sans-serif}
 .ph svg{position:absolute;inset:-12% 0;width:100%;height:124%;will-change:transform}
 .ph span{position:relative;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.p1{grid-column:1/8;grid-row:1/3;min-height:420px;background:linear-gradient(150deg,#c8456b,#6a5acd)}
-.p2{grid-column:8/13;margin-top:50px;background:linear-gradient(150deg,#f2b63c,#c8456b)}
-.p3{grid-column:6/13;margin-left:-40px;background:linear-gradient(150deg,#2a9d8f,#14173a)}
+.p1{grid-column:1/8;grid-row:1/3;min-height:420px;background:linear-gradient(150deg,#0099FF,#66c2ff)}
+.p2{grid-column:8/13;margin-top:50px;background:linear-gradient(150deg,#E0F354,#0099FF)}
+.p3{grid-column:6/13;margin-left:-40px;background:linear-gradient(150deg,#0077c2,#04264a)}
 @media(max-width:700px){.p1,.p2,.p3{grid-column:1/13;margin:0;grid-row:auto;min-height:260px}}
 /* REVEALS */
 .rv{opacity:0;transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),clip-path 1.2s cubic-bezier(.7,0,.2,1)}
@@ -91,40 +91,40 @@ h2{font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;margin:0 0 10px;letter-spac
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));perspective:900px}
 .item{display:block;position:relative;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:16px;padding:20px 18px;text-decoration:none;transition:transform .25s ease-out,box-shadow .3s;transform-style:preserve-3d;overflow:hidden;animation:pop .6s both}
 @keyframes pop{from{opacity:0;transform:translateY(24px)}}
-.item::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(242,182,60,.22),transparent 60%);opacity:0;transition:opacity .3s}
-.item:hover{box-shadow:0 18px 34px rgba(20,23,58,.22)}.item:hover::after{opacity:1}
+.item::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(224,243,84,.22),transparent 60%);opacity:0;transition:opacity .3s}
+.item:hover{box-shadow:0 18px 34px rgba(4,38,74,.22)}.item:hover::after{opacity:1}
 .tag{font:700 .8rem "Bricolage Grotesque",sans-serif;color:var(--c)}
 .item h3{margin:6px 0 4px;font-size:1.2rem;line-height:1.25}.item small{color:var(--muted)}
 .arr{position:absolute;right:16px;bottom:12px;font-size:1.4rem;color:var(--c);transition:transform .3s}.item:hover .arr{transform:translate(4px,-4px)}
 .empty{color:var(--muted)}
 /* CALENDAR */
-.cal{background:linear-gradient(160deg,var(--ink),#3a2a6b 60%,var(--rose));color:#fff;padding:110px 0}
-.cal .sub{color:#d6d4ee}
+.cal{background:linear-gradient(160deg,var(--ink),#0a4d8c 60%,var(--rose));color:#fff;padding:110px 0}
+.cal .sub{color:#cfe6f7}
 .dbox{background:var(--amber);color:var(--ink);border-radius:16px;min-width:84px;text-align:center;padding:10px;font-family:"Bricolage Grotesque",sans-serif;line-height:1;flex:none}
 .dbox b{display:block;font-size:2.4rem;font-weight:800}.dbox span{font-size:.9rem;font-weight:700;text-transform:uppercase}
 .nextcard{display:flex;gap:22px;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);border-radius:24px;padding:26px 24px;margin-bottom:14px}
 .nextcard .dbox{animation:pulse 2.4s ease-in-out infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(242,182,60,.25)}}
-.nextcard h3{margin:0 0 4px;font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.15}.nextcard p{margin:0;color:#d6d4ee}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(224,243,84,.25)}}
+.nextcard h3{margin:0 0 4px;font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.15}.nextcard p{margin:0;color:#cfe6f7}
 .badge{display:inline-block;background:var(--rose);font:700 .8rem "Bricolage Grotesque",sans-serif;padding:3px 12px;border-radius:999px;margin-bottom:8px}
 .row{display:flex;gap:16px;align-items:center;padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.2)}
 .row .dbox{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);min-width:66px;padding:8px}.row .dbox b{font-size:1.6rem}
-.row h3{margin:0;font-size:1.15rem}.row small{color:#d6d4ee}
+.row h3{margin:0;font-size:1.15rem}.row small{color:#cfe6f7}
 /* CALENDARIO */
 .cnav{display:flex;align-items:center;justify-content:space-between;margin:22px 0 12px}
 .cnav h3{margin:0;font-size:1.6rem;text-transform:capitalize}
 .cnav button{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:1.3rem;cursor:pointer;transition:transform .2s,background .2s}
 .cnav button:hover:not(:disabled){background:rgba(255,255,255,.18);transform:scale(1.08)}.cnav button:disabled{opacity:.3;cursor:default}
 .cg{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.cg .h{text-align:center;font:700 .8rem "Bricolage Grotesque",sans-serif;color:#d6d4ee;padding:4px 0}
+.cg .h{text-align:center;font:700 .8rem "Bricolage Grotesque",sans-serif;color:#cfe6f7;padding:4px 0}
 .cg .d{aspect-ratio:1;display:grid;place-items:center;border-radius:14px;font:600 1rem "Bricolage Grotesque",sans-serif;color:rgba(255,255,255,.55);background:rgba(255,255,255,.06);border:0}
 .cg button.d{cursor:pointer;color:var(--ink);background:var(--amber);font-weight:800;font-size:1.3rem;position:relative;animation:glowd 2.4s ease-in-out infinite;transition:transform .25s}
 .cg button.d:hover{transform:scale(1.14) rotate(-3deg)}
 .cg button.d small{position:absolute;bottom:4px;font-size:.55rem;letter-spacing:.04em}
-.cg button.d.past{background:rgba(242,182,60,.35);animation:none;color:#fff}
-@keyframes glowd{50%{box-shadow:0 0 0 7px rgba(242,182,60,.28),0 0 26px rgba(242,182,60,.6)}}
+.cg button.d.past{background:rgba(224,243,84,.35);animation:none;color:#fff}
+@keyframes glowd{50%{box-shadow:0 0 0 7px rgba(224,243,84,.28),0 0 26px rgba(224,243,84,.6)}}
 dialog{border:0;border-radius:24px;padding:26px 24px;width:min(92vw,420px);background:var(--card);color:var(--text)}
-dialog::backdrop{background:rgba(10,12,35,.7);backdrop-filter:blur(4px)}
+dialog::backdrop{background:rgba(2,18,38,.7);backdrop-filter:blur(4px)}
 dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}dialog p{margin:4px 0}
 .dact{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.dact .btn{background:var(--rose);color:#fff;padding:12px 22px;border:0;cursor:pointer}
 .dact .x{background:transparent;color:var(--text);border:2px solid var(--line)}
@@ -141,9 +141,9 @@ dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}d
 .bk p{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.45}
 .bk b{font:700 .85rem "Bricolage Grotesque",sans-serif;color:var(--c)}
 .bk b::after{content:" ↓";display:inline-block;transition:transform .3s}
-.bk:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(20,23,58,.2)}.bk:hover i{width:78px}.bk:hover b::after{transform:translateY(3px)}
-.logo-card.hero-logo{width:min(86vw,420px);margin:0 auto 26px;box-shadow:0 0 70px rgba(242,182,60,.4),0 24px 50px rgba(0,0,0,.35)}
-.logo-card{max-width:460px;margin:0 auto;background:#fff;border-radius:28px;padding:26px 22px;box-shadow:0 20px 50px rgba(20,23,58,.18)}
+.bk:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(4,38,74,.2)}.bk:hover i{width:78px}.bk:hover b::after{transform:translateY(3px)}
+.logo-card.hero-logo{width:min(86vw,420px);margin:0 auto 26px;box-shadow:0 0 70px rgba(224,243,84,.4),0 24px 50px rgba(0,0,0,.35)}
+.logo-card{max-width:460px;margin:0 auto;background:#fff;border-radius:28px;padding:26px 22px;box-shadow:0 20px 50px rgba(4,38,74,.18)}
 .logo-card svg{display:block;width:100%;height:auto}
 .logo-card:not(.in) .logo-animado *{animation-play-state:paused}
 /* PREGUNTAS */
@@ -155,27 +155,83 @@ dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}d
 .opts span{display:inline-block;font:600 1rem "Bricolage Grotesque",sans-serif;padding:10px 20px;border-radius:999px;border:2px solid var(--line);cursor:pointer;transition:transform .2s,background .25s,color .25s}
 .opts span:hover{transform:translateY(-2px)}
 .opts input:checked+span{background:var(--teal);border-color:var(--teal);color:#fff}
-.opts input:focus-visible+span{outline:3px solid var(--amber);outline-offset:3px}
-.box input[type=text],.box textarea{width:100%;font:inherit;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--text);transition:border-color .25s}
-.box input[type=text]:focus,.box textarea:focus{border-color:var(--amber);outline:none}
+.opts input:focus-visible+span{outline:3px solid var(--rose);outline-offset:3px}
+.box input[type=text],.box input[type=email],.box textarea{width:100%;font:inherit;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--text);transition:border-color .25s}
+.box input[type=text]:focus,.box input[type=email]:focus,.box textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(0,153,255,.25);outline:none}
 .box textarea{min-height:170px;resize:vertical}
-#nameBox{display:none}#nameBox.show{display:block;animation:pop .4s both}
+#idBox{display:none;gap:16px}#idBox.show{display:grid;animation:pop .4s both}
 .note{color:var(--muted);font-size:.9rem;margin:0}
 #msgStatus{font-weight:600;min-height:1.5em;margin:0}
 #sendBtn{border:0;cursor:pointer;justify-self:start;opacity:1;background:var(--rose);color:#fff}
+#sendBtn:disabled{opacity:.6;cursor:wait}
+:root{--err:#b3261e;--ok:#0a7a3d}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--err:#ff9a90;--ok:#6fdc9b}}
+:root[data-theme="dark"]{--err:#ff9a90;--ok:#6fdc9b}
+.box form{display:grid;gap:22px}.box [hidden]{display:none!important}
+.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.hint{color:var(--muted);font-size:.9rem;margin:10px 0 0}
+.cnt{color:var(--muted);font-size:.85rem;text-align:right;margin:4px 0 0}
+.box .fld-err{border-color:var(--err)}
+#msgStatus.err{color:var(--err)}#msgStatus.ok{color:var(--ok)}
+.priv{color:var(--muted);font-size:.9rem}.priv summary{cursor:pointer;font:600 .95rem "Bricolage Grotesque",sans-serif;color:var(--text)}
+.priv ul{margin:10px 0 0;padding-left:1.2em;display:grid;gap:6px}
+#done{text-align:center;padding:10px 0;display:grid;gap:14px;justify-items:center}#done h3{margin:0;font-size:1.8rem}#done p{margin:0}
 /* CTA */
 .cta{text-align:center;padding:120px 20px;background:var(--amber);color:var(--ink);overflow:hidden}
 .cta h2{font-size:clamp(2.6rem,11vw,6rem);margin-bottom:22px}
 .cta .btn{background:var(--ink);color:#fff}
 footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.95rem}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
+
+/* ===== PANEL DE ADMINISTRACIÓN: capa que se abre con tu-web/#admin (no visible en la web normal) ===== */
+#adm{position:fixed;inset:0;z-index:200;overflow-y:auto;background:var(--bg);color:var(--text);font:17px/1.55 "Source Serif 4",Georgia,serif;--olive:#7d8a06}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #adm{--olive:#c9d86a}}
+:root[data-theme="dark"] #adm{--olive:#c9d86a}
+#adm[hidden],#adm [hidden]{display:none!important}
+#adm *{box-sizing:border-box}
+#adm :focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+#adm h1,#adm h3,#adm .sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+#adm h1{font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0 0 8px;letter-spacing:-.02em}
+#adm .ad-bar{background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px}
+#adm .ad-bar b{font:800 1.05rem "Bricolage Grotesque",sans-serif}
+#adm .ad-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#adm .ad-wrap{max-width:900px;margin:0 auto;padding:28px 20px 80px}
+#adm .ad-sub{color:var(--muted);margin:0 0 24px}
+#adm .ad-btn{display:inline-block;background:var(--amber);color:var(--ink);font:700 .95rem "Bricolage Grotesque",sans-serif;padding:11px 22px;border-radius:999px;border:0;cursor:pointer;text-decoration:none}
+#adm .ad-btn:disabled{opacity:.6;cursor:wait}
+#adm .ad-btn.ad-sec{background:transparent;color:inherit;border:2px solid currentColor}
+#adm .ad-btn.ad-danger{background:transparent;color:var(--err);border:2px solid var(--err)}
+#adm .ad-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px}
+#adm #ad-login{max-width:440px;margin:40px auto 0;display:grid;gap:18px}
+#adm label.ad-t{font:700 .95rem "Bricolage Grotesque",sans-serif;display:block;margin-bottom:8px}
+#adm input[type=email],#adm input[type=password]{width:100%;font:inherit;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:var(--bg);color:var(--text)}
+#adm input:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(0,153,255,.25);outline:none}
+#adm .ad-st{font-weight:600;min-height:1.5em;margin:0}#adm .ad-st.err{color:var(--err)}#adm .ad-st.ok{color:var(--ok)}
+#adm .ad-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+#adm .ad-chip{font:600 .95rem "Bricolage Grotesque",sans-serif;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--text);cursor:pointer}
+#adm .ad-chip[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+#adm .ad-spacer{flex:1}
+#adm #ad-list{display:grid;gap:14px}
+#adm .ad-p{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:16px;overflow:hidden}
+#adm .ad-p summary{list-style:none;cursor:pointer;padding:16px 18px;display:grid;gap:6px}
+#adm .ad-p summary::-webkit-details-marker{display:none}
+#adm .ad-p summary h3{margin:0;font-size:1.15rem;line-height:1.3}
+#adm .ad-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:600 .82rem "Bricolage Grotesque",sans-serif;color:var(--muted)}
+#adm .ad-badge{display:inline-block;padding:2px 10px;border-radius:999px;border:1.5px solid currentColor;font:700 .78rem "Bricolage Grotesque",sans-serif}
+#adm .ad-badge.pending{color:var(--rose)}#adm .ad-badge.reviewed{color:var(--olive)}#adm .ad-badge.resolved{color:var(--muted)}
+#adm .ad-inner{padding:4px 18px 18px;display:grid;gap:16px;border-top:1px solid var(--line)}
+#adm .ad-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:14px 0 0}
+#adm .ad-who{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.95rem;overflow-wrap:anywhere}
+#adm .ad-who a{color:var(--rose);font-weight:600}
+#adm .ad-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#adm .ad-empty{color:var(--muted)}
 </style>
 </head>
 <body>
 <nav id="nav">
-  <a class="brand" href="#top"><svg viewBox="8 2 74 80" aria-hidden="true"><path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="#f2b63c"/><g stroke="#14173a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M45 13V68M34 18L43 68M56 18L47 68M24 28L40 68M66 28L50 68M17 41L38 68M73 41L52 68"/></g></svg>Universitarios Sarrià</a>
+  <a class="brand" href="#top"><svg viewBox="8 2 74 80" aria-hidden="true"><path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="#E0F354"/><g stroke="#04264a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M45 13V68M34 18L43 68M56 18L47 68M24 28L40 68M66 28L50 68M17 41L38 68M73 41L52 68"/></g></svg>Universitarios Sarrià</a>
   <button class="burger" id="bg" aria-label="Menú"><i></i><i></i></button>
-  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Preguntas</a></div>
+  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Propuestas</a></div>
 </nav>
 
 <header class="hero" id="top">
@@ -186,7 +242,7 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
   <div>
     <div class="logo-card in hero-logo" data-p="-0.12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" class="logo-animado" aria-label="Logo de Universitarios Sarrià">
   <style>
-    .logo-animado{--granate-oscuro:#5a0c20;--granate-brillante:#7c142e;--destello:#f2b63c;overflow:visible}
+    .logo-animado{--granate-oscuro:#0b4a82;--granate-brillante:#0099FF;--destello:#E0F354;overflow:visible}
     .concha-grupo{transform-origin:400px 75px;animation:flotarConcha 5s ease-in-out infinite;cursor:pointer}
     .rayo-concha{stroke-dasharray:100;stroke-dashoffset:100;animation:desplegarRayo 1.5s cubic-bezier(.2,.8,.2,1) forwards}
     .rayo-central{animation-delay:.1s}.rayo-interno-izq,.rayo-interno-der{animation-delay:.25s}.rayo-medio-izq,.rayo-medio-der{animation-delay:.4s}.rayo-externo-izq,.rayo-externo-der{animation-delay:.55s}.rayo-borde-izq,.rayo-borde-der{animation-delay:.7s}
@@ -235,9 +291,9 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 </div></section>
 
 <div class="wrap"><div class="mos">
-  <div class="ph p1 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.08"><circle cx="70" cy="35" r="32" fill="#f2b63c" opacity=".35"/><circle cx="25" cy="75" r="26" fill="#14173a" opacity=".3"/></svg><span>Charlas</span></div>
+  <div class="ph p1 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.08"><circle cx="70" cy="35" r="32" fill="#E0F354" opacity=".35"/><circle cx="25" cy="75" r="26" fill="#04264a" opacity=".3"/></svg><span>Charlas</span></div>
   <div class="ph p2 rv mk rb"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="-0.07"><circle cx="30" cy="30" r="30" fill="#fff" opacity=".25"/></svg><span>Amistad</span></div>
-  <div class="ph p3 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.1"><circle cx="75" cy="60" r="34" fill="#6a5acd" opacity=".45"/></svg><span>Oración</span></div>
+  <div class="ph p3 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.1"><circle cx="75" cy="60" r="34" fill="#66c2ff" opacity=".45"/></svg><span>Oración</span></div>
 </div></div>
 
 <section id="biblioteca" class="lib"><div class="wrap">
@@ -268,18 +324,40 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 </div></section>
 
 <section id="preguntas" class="ask"><div class="wrap">
-  <h2 class="rv up">Banco de preguntas</h2>
-  <p class="sub rv up">¿Tienes una duda o una idea para el grupo? Cuéntanosla.</p>
+  <h2 class="rv up">Banco de propuestas y preguntas</h2>
+  <p class="sub rv up">¿Tienes una idea, una propuesta o una duda para el grupo? Cuéntanosla. Solo la lee la persona que lleva el grupo.</p>
   <div class="box rv sc">
-    <div><span class="t sans" style="font-weight:700;display:block;margin-bottom:10px">¿Qué quieres enviar?</span>
-      <div class="opts"><label><input type="radio" name="kind" value="Duda" checked><span>Duda</span></label><label><input type="radio" name="kind" value="Sugerencia"><span>Sugerencia</span></label></div></div>
-    <div><span class="t sans" style="font-weight:700;display:block;margin-bottom:10px">¿Cómo quieres enviarlo?</span>
-      <div class="opts"><label><input type="radio" name="who" value="anon" checked><span>Anónimo</span></label><label><input type="radio" name="who" value="name"><span>Con mi nombre</span></label></div></div>
-    <div id="nameBox"><label class="t" for="nm">Tu nombre</label><input type="text" id="nm" autocomplete="name" placeholder="Escribe tu nombre"></div>
-    <div><label class="t" for="msg">Tu mensaje</label><textarea id="msg" placeholder="Escribe aquí todo lo que quieras"></textarea></div>
-    <button class="btn" id="sendBtn" type="button">Enviar</button>
-    <p id="msgStatus" role="status"></p>
-    <p class="note">Tu mensaje llega directamente a la persona que lleva el grupo. Si eliges anónimo, no se incluye tu nombre ni tu correo.</p>
+    <form id="pf" novalidate>
+      <div><label class="t" for="ttl">Título</label><input type="text" id="ttl" maxlength="150" autocomplete="off" placeholder="Resume tu propuesta o pregunta en una frase" required></div>
+      <div><label class="t" for="msg">Cuéntanos más</label><textarea id="msg" maxlength="5000" placeholder="Explica tu idea, propuesta o pregunta con todo el detalle que quieras" required></textarea><p class="cnt" id="cnt" aria-hidden="true">0 / 5000</p></div>
+      <div><span class="t sans" style="font-weight:700;display:block;margin-bottom:10px">¿Cómo quieres enviarlo?</span>
+        <div class="opts" role="radiogroup" aria-label="Tipo de envío"><label><input type="radio" name="who" value="anon" checked><span>Anónimo</span></label><label><input type="radio" name="who" value="name"><span>Con mis datos</span></label></div>
+        <p class="hint" id="whoHint"></p></div>
+      <div id="idBox">
+        <div><label class="t" for="nm">Tu nombre</label><input type="text" id="nm" maxlength="100" autocomplete="name" placeholder="Escribe tu nombre" disabled></div>
+        <div><label class="t" for="em">Tu correo electrónico</label><input type="email" id="em" maxlength="254" autocomplete="email" placeholder="tucorreo@ejemplo.com" disabled></div>
+      </div>
+      <div class="hp" aria-hidden="true"><label>No rellenar este campo<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div id="tsBox"></div>
+      <button class="btn" id="sendBtn" type="submit">Enviar</button>
+      <p id="msgStatus" role="status" aria-live="polite"></p>
+      <p class="note">Tu mensaje es privado: no se publica y solo lo lee la persona que lleva el grupo.</p>
+      <details class="priv"><summary>Cómo tratamos tus datos</summary>
+        <ul>
+          <li><strong>Quién lo lee:</strong> solo la persona que administra el grupo. Las propuestas no se publican ni las ven otros visitantes.</li>
+          <li><strong>Qué guardamos:</strong> el título, el mensaje y la fecha de envío. Si eliges «Con mis datos», también tu nombre y tu correo, únicamente para poder responderte.</li>
+          <li><strong>Si eliges «Anónimo»:</strong> no te pedimos ni guardamos nombre ni correo, y no vinculamos el mensaje a ninguna identidad.</li>
+          <li><strong>Contra el spam:</strong> usamos Cloudflare Turnstile para comprobar que eres una persona (Cloudflare puede tratar datos técnicos de tu navegador) y un contador temporal con una huella cifrada de tu conexión, que no se asocia a tu mensaje y se borra en pocos días. No guardamos tu dirección IP.</li>
+          <li><strong>Cuánto tiempo:</strong> el necesario para atender tu propuesta; después se elimina.</li>
+          <li><strong>Tus derechos:</strong> si te identificaste y quieres consultar o borrar tus datos, díselo a la persona que lleva el grupo.</li>
+        </ul>
+      </details>
+    </form>
+    <div id="done" hidden>
+      <h3 tabindex="-1">¡Enviado! Gracias</h3>
+      <p>Hemos recibido tu mensaje. Solo lo leerá la persona que lleva el grupo.</p>
+      <button class="btn" id="again" type="button">Enviar otro mensaje</button>
+    </div>
   </div>
 </div></section>
 
@@ -288,6 +366,41 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 <dialog id="dlg"></dialog>
 <footer>Hecho para Universitarios Sarrià. Ven como eres.</footer>
 
+<div id="adm" hidden>
+  <header class="ad-bar"><b>Universitarios Sarrià · Panel</b><span class="ad-links"><a class="ad-btn ad-sec" href="#top">Volver a la web</a><button class="ad-btn ad-sec" id="ad-out" type="button" hidden>Cerrar sesión</button></span></header>
+  <main class="ad-wrap">
+    <section id="ad-login" class="ad-card" hidden>
+      <div><h1>Acceso de administrador</h1><p class="ad-sub" style="margin:0">Solo para quien lleva el grupo.</p></div>
+      <form id="ad-lf" style="display:grid;gap:18px" novalidate>
+        <div><label class="ad-t" for="ad-em">Correo electrónico</label><input type="email" id="ad-em" autocomplete="username" required></div>
+        <div><label class="ad-t" for="ad-pw">Contraseña</label><input type="password" id="ad-pw" autocomplete="current-password" required></div>
+        <button class="ad-btn" id="ad-go" type="submit" style="justify-self:start">Entrar</button>
+        <p class="ad-st" id="ad-lst" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section id="ad-panel" hidden>
+      <h1>Propuestas recibidas</h1>
+      <p class="ad-sub">Privadas: solo tú puedes verlas desde esta sesión.</p>
+      <div class="ad-tools" id="ad-chips"></div>
+      <p class="ad-st" id="ad-pst" role="status" aria-live="polite"></p>
+      <div id="ad-list"></div>
+    </section>
+  </main>
+</div>
+<!-- ===================== CONFIGURACIÓN (valores PÚBLICOS) =====================
+     Edita solo estas 3 líneas con tus datos (ver SETUP.md, paso 5).
+     Aquí NUNCA van claves secretas: todo lo que hay en este archivo lo puede ver cualquiera.
+       · SUPABASE_URL ............... Supabase > Project Settings > API > Project URL
+       · SUPABASE_PUBLISHABLE_KEY ... Supabase > API Keys > Publishable key (empieza por sb_publishable_)
+       · TURNSTILE_SITE_KEY ......... Cloudflare > Turnstile > tu widget > Site key
+============================================================================== -->
+<script>
+window.SITE_CONFIG={
+  SUPABASE_URL:"https://REEMPLAZA.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY:"sb_publishable_REEMPLAZA",
+  TURNSTILE_SITE_KEY:"REEMPLAZA"
+};
+</script>
 <script>
 var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -300,7 +413,7 @@ var ITEMS=[
  {t:"Evangelio de Juan: semanas 1 a 4",k:"Study",d:"Guía de estudio",u:"#"},
  {t:"Salmos para los días difíciles",k:"Study",d:"Guía de estudio",u:"#"}
 ];
-var COL={Presentation:"#c8456b",Document:"#2a9d8f",Study:"#d99a14"};
+var COL={Presentation:"#0099FF",Document:"#0077c2",Study:"#7d8a06"};
 var LBL={Presentation:"Presentación",Document:"Documento",Study:"Guía de estudio"};
 var f="All";
 function render(){
@@ -319,7 +432,7 @@ document.getElementById("q").addEventListener("input",render);render();
 // Reuniones: d:[año,mes,día], t:"Tema", p:"Ponente", r:[{n:"Nombre a mostrar",u:"archivo.pdf"}] (r es opcional).
 // Las reuniones pasadas se quedan en el calendario, más apagadas, y se llega a ellas con las flechas.
 var MEETS=[
- {d:[2026,11,6],t:"La Palabra de Dios 1",p:"Santi y Marcos"},
+ {d:[2026,11,6],t:"La Palabra de Dios 1",p:"Román"},
  {d:[2026,11,13],t:"Teología del cuerpo",p:"Matrimonio"},
  {d:[2026,11,27],t:"La Palabra de Dios 2",p:"Román"},
  {d:[2026,12,11],t:"Teología del cuerpo",p:"Matrimonio"}
@@ -360,24 +473,62 @@ var BOOKS=[
  {t:"Catecismo de la Iglesia Católica",d:"La exposición completa de la fe católica, para consultar cuando surge una duda.",u:"catecismo-de-la-iglesia-catolica.pdf"},
  {t:"Cartas del diablo a su sobrino",d:"C. S. Lewis. Un demonio veterano aconseja a su sobrino cómo tentar a un joven.",u:"cartas-del-diablo-a-su-sobrino.pdf"}
 ];
-document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#c8456b","#2a9d8f","#d99a14","#6a5acd"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
+document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#0099FF","#0077c2","#7d8a06","#0055b3"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
   return '<a class="bk rv up" style="--c:'+c+';transition-delay:'+(i%4*.08)+'s" href="'+esc(b.u)+'" target="_blank" rel="noopener"'+(ext?'':' download')+'><i>'+pad(i+1)+'</i><div><h3>'+esc(b.t)+'</h3><p>'+esc(b.d)+'</p><b>Descargar</b></div></a>'}).join("");
-// Banco de preguntas: envío directo al correo con FormSubmit
-var MAIL="yagogsdo21@gmail.com";
-function radio(n){return document.querySelector('input[name="'+n+'"]:checked').value}
-document.querySelectorAll('input[name="who"]').forEach(function(r){r.addEventListener("change",function(){document.getElementById("nameBox").classList.toggle("show",radio("who")==="name")})});
-document.getElementById("sendBtn").addEventListener("click",function(){
-  var st=document.getElementById("msgStatus"),msg=document.getElementById("msg").value.trim(),nm=document.getElementById("nm").value.trim(),k=radio("kind"),named=radio("who")==="name";
-  if(!msg){st.textContent="Escribe tu mensaje antes de enviar.";return}
-  if(named&&!nm){st.textContent="Escribe tu nombre o elige Anónimo.";return}
-  var body="Tipo: "+k+"\nDe: "+(named?nm:"Anónimo")+"\n\n"+msg;
-  var btn=document.getElementById("sendBtn");btn.disabled=true;st.textContent="Enviando…";
-  fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({_subject:"["+k+"] Universitarios Sarrià",_template:"table",_captcha:"false",Tipo:k,De:named?nm:"Anónimo",Mensaje:msg})})
-  .then(function(r){if(!r.ok)throw 0;return r.json()})
-  .then(function(){st.textContent="¡Enviado! Gracias por tu mensaje.";document.getElementById("msg").value="";document.getElementById("nm").value=""})
-  .catch(function(){st.textContent="No se ha podido enviar. Abriendo tu correo como alternativa…";location.href="mailto:"+MAIL+"?subject="+encodeURIComponent("["+k+"] Universitarios Sarrià")+"&body="+encodeURIComponent(body)})
-  .then(function(){btn.disabled=false});
-});
+// Banco de propuestas y preguntas: envío privado a la función "submit-proposal".
+// Aquí NO hay claves secretas ni correos: solo la URL pública y la clave pública de Turnstile (bloque de configuración).
+var CFG=window.SITE_CONFIG||{};
+function cfgOk(){var u=CFG.SUPABASE_URL||"",k=CFG.TURNSTILE_SITE_KEY||"";
+  return /^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/.test(u)&&u.indexOf("REEMPLAZA")<0&&!!k&&k.indexOf("REEMPLAZA")<0}
+(function(){
+  var f=document.getElementById("pf");if(!f)return;
+  function $(id){return document.getElementById(id)}
+  var st=$("msgStatus"),btn=$("sendBtn"),idBox=$("idBox"),hint=$("whoHint"),ttl=$("ttl"),msg=$("msg"),nm=$("nm"),em=$("em"),cnt=$("cnt"),done=$("done"),tsEl=$("tsBox"),tsId=null,busy=false;
+  var HINT={anon:"No te pediremos ni guardaremos tu nombre ni tu correo.",name:"Guardaremos tu nombre y tu correo solo para poder responderte."};
+  function L(s){return Array.from(s).length}
+  function mode(){return document.querySelector('input[name="who"]:checked').value==="name"?"identified":"anonymous"}
+  function say(t,c){st.textContent=t;st.className=c||""}
+  function mark(el,on){el.classList.toggle("fld-err",!!on);if(on)el.setAttribute("aria-invalid","true");else el.removeAttribute("aria-invalid")}
+  function sync(){
+    var id=mode()==="identified";
+    idBox.classList.toggle("show",id);nm.disabled=!id;em.disabled=!id;
+    if(!id){nm.value="";em.value="";mark(nm,0);mark(em,0)}
+    hint.textContent=id?HINT.name:HINT.anon;
+  }
+  document.querySelectorAll('input[name="who"]').forEach(function(r){r.addEventListener("change",sync)});sync();
+  msg.addEventListener("input",function(){cnt.textContent=L(msg.value)+" / 5000"});
+  if(!cfgOk()){btn.disabled=true;say("Este formulario todavía no está conectado. Avisa a la persona que lleva el grupo.","err")}
+  else{
+    var s=document.createElement("script");s.src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";s.async=true;s.defer=true;
+    s.onload=function(){tsId=window.turnstile.render(tsEl,{sitekey:CFG.TURNSTILE_SITE_KEY,language:"es",theme:"auto"})};
+    s.onerror=function(){say("No se ha podido cargar la comprobación de seguridad. Desactiva el bloqueador de contenido o inténtalo más tarde.","err")};
+    document.head.appendChild(s);
+  }
+  f.addEventListener("submit",function(e){
+    e.preventDefault();if(busy||!cfgOk())return;
+    [ttl,msg,nm,em].forEach(function(x){mark(x,0)});
+    var m=mode(),t=ttl.value.trim(),b=msg.value.trim(),n=nm.value.trim(),c=em.value.trim(),bad=null,why="";
+    if(L(t)<3||L(t)>150){bad=ttl;why="Escribe un título (entre 3 y 150 caracteres)."}
+    else if(L(b)<10||L(b)>5000){bad=msg;why="Cuéntanos tu propuesta o pregunta (mínimo 10 caracteres)."}
+    else if(m==="identified"&&!n){bad=nm;why="Escribe tu nombre o elige el envío anónimo."}
+    else if(m==="identified"&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)){bad=em;why="Escribe un correo electrónico válido o elige el envío anónimo."}
+    if(bad){mark(bad,1);say(why,"err");bad.focus();return}
+    var tok=(tsId!==null&&window.turnstile)?window.turnstile.getResponse(tsId):"";
+    if(!tok){say("Completa la comprobación de seguridad antes de enviar.","err");return}
+    var p={title:t,body:b,mode:m,turnstileToken:tok,website:f.elements.website.value};
+    if(m==="identified"){p.name=n;p.email=c}   // en modo anónimo ni se envían
+    busy=true;btn.disabled=true;say("Enviando…");
+    fetch(CFG.SUPABASE_URL.replace(/\/+$/,"")+"/functions/v1/submit-proposal",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p),credentials:"omit",referrerPolicy:"no-referrer"})
+    .then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok&&d.ok===true,d:d}})})
+    .then(function(x){
+      if(x.ok){f.hidden=true;done.hidden=false;f.reset();sync();cnt.textContent="0 / 5000";say("");done.querySelector("h3").focus()}
+      else{say(x.d.error||"No se ha podido enviar. Inténtalo de nuevo.","err");var fl={title:ttl,body:msg,name:nm,email:em}[x.d.field];if(fl){mark(fl,1);fl.focus()}}
+    })
+    .catch(function(){say("No se ha podido conectar. Revisa tu conexión e inténtalo de nuevo.","err")})
+    .then(function(){busy=false;btn.disabled=!cfgOk();if(tsId!==null&&window.turnstile)window.turnstile.reset(tsId)});
+  });
+  $("again").addEventListener("click",function(){done.hidden=true;f.hidden=false;ttl.focus()});
+})();
 // Marquesina
 var t="Fe ✦ Comunidad ✦ Universidad ✦ Amistad ✦ Oración ✦ ";document.getElementById("mq").textContent=t.repeat(8);
 // Manifiesto palabra a palabra
@@ -416,6 +567,163 @@ if(!RM&&matchMedia("(hover:hover)").matches){
   });
   document.addEventListener("mouseout",function(e){var c=e.target.closest&&e.target.closest(".tilt");if(c)c.style.transform=""});
 }
+</script>
+<script>
+(function(){
+"use strict";
+var CFG=window.SITE_CONFIG||{},BASE=String(CFG.SUPABASE_URL||"").replace(/\/+$/,""),KEY=String(CFG.SUPABASE_PUBLISHABLE_KEY||"");
+var CONFIGURED=/^(https:\/\/|http:\/\/(localhost|127\.0\.0\.1)[:\/])/.test(BASE)&&BASE.indexOf("REEMPLAZA")<0&&!!KEY&&KEY.indexOf("REEMPLAZA")<0;
+var SK="sarria_admin_session",IDLE_MS=30*60*1000;
+var sess=null,items=[],filter="all",idleT=null,busy=false,OPEN={};
+var STATUS={pending:"Pendiente",reviewed:"Revisada",resolved:"Resuelta"};
+var COLOR={pending:"var(--rose)",reviewed:"var(--olive)",resolved:"var(--muted)"};
+var UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+function $(id){return document.getElementById(id)}
+// Todo el contenido de las propuestas es texto de desconocidos: SIEMPRE textContent, nunca innerHTML.
+function el(tag,attrs,kids){var n=document.createElement(tag);for(var k in(attrs||{})){if(k==="text")n.textContent=attrs[k];else n.setAttribute(k,attrs[k])}
+  (kids||[]).forEach(function(c){n.appendChild(typeof c==="string"?document.createTextNode(c):c)});return n}
+function say(id,t,c){var n=$(id);n.textContent=t||"";n.className="ad-st"+(c?" "+c:"")}
+
+// ---- sesión (solo sessionStorage: se borra al cerrar la pestaña) ----------
+try{sess=JSON.parse(sessionStorage.getItem(SK)||"null")}catch(e){sess=null}
+function save(d){sess={a:d.access_token,r:d.refresh_token,e:Date.now()+Math.max(30,(d.expires_in||3600)-30)*1000};try{sessionStorage.setItem(SK,JSON.stringify(sess))}catch(e){}}
+function clear(){sess=null;items=[];OPEN={};try{sessionStorage.removeItem(SK)}catch(e){}}
+function view(name){$("ad-login").hidden=name!=="login";$("ad-panel").hidden=name!=="panel";$("ad-out").hidden=name!=="panel"}
+
+async function authCall(path,body,bearer){
+  var h={apikey:KEY,"Content-Type":"application/json"};if(bearer)h.Authorization="Bearer "+bearer;
+  return fetch(BASE+path,{method:"POST",headers:h,body:JSON.stringify(body||{}),cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer"});
+}
+async function refresh(){
+  if(!sess||!sess.r)return false;
+  try{var r=await authCall("/auth/v1/token?grant_type=refresh_token",{refresh_token:sess.r});
+    var d=await r.json().catch(function(){return{}});
+    if(!r.ok||!d.access_token){return false}save(d);return true}catch(e){return false}
+}
+async function endSession(msg,kind){
+  var t=sess&&sess.a;clear();clearTimeout(idleT);
+  if(t){try{await authCall("/auth/v1/logout?scope=local",{},t)}catch(e){}}
+  $("ad-list").textContent="";$("ad-chips").textContent="";view("login");say("ad-lst",msg||"",kind);
+}
+async function api(method,path,body,extra,retried){
+  if(!sess)throw new Error("auth");
+  if(Date.now()>sess.e&&!(await refresh())){await endSession("La sesión ha caducado. Vuelve a entrar.","err");throw new Error("auth")}
+  var h={apikey:KEY,Authorization:"Bearer "+sess.a};for(var k in(extra||{}))h[k]=extra[k];
+  if(body!==undefined)h["Content-Type"]="application/json";
+  var r=await fetch(BASE+path,{method:method,headers:h,body:body===undefined?undefined:JSON.stringify(body),cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer"});
+  if(r.status===401){
+    if(!retried&&await refresh())return api(method,path,body,extra,true);
+    await endSession("La sesión ha caducado. Vuelve a entrar.","err");throw new Error("auth");
+  }
+  if(!r.ok)throw new Error("http "+r.status);
+  return r.status===204?null:r.json();
+}
+
+// ---- inactividad ---------------------------------------------------------
+function bump(){clearTimeout(idleT);if(sess)idleT=setTimeout(function(){endSession("Sesión cerrada por inactividad.")},IDLE_MS)}
+["pointerdown","keydown"].forEach(function(ev){addEventListener(ev,bump,{passive:true})});
+
+// ---- acceso --------------------------------------------------------------
+$("ad-lf").addEventListener("submit",async function(e){
+  e.preventDefault();if(busy)return;
+  var em=$("ad-em").value.trim(),pw=$("ad-pw").value;
+  if(!em||!pw){say("ad-lst","Escribe tu correo y tu contraseña.","err");return}
+  busy=true;$("ad-go").disabled=true;say("ad-lst","Entrando…");
+  try{
+    var r=await authCall("/auth/v1/token?grant_type=password",{email:em,password:pw});
+    var d=await r.json().catch(function(){return{}});
+    if(!r.ok||!d.access_token){say("ad-lst",(r.status===400||r.status===401||r.status===422)?"Correo o contraseña incorrectos.":"No se ha podido iniciar sesión. Inténtalo más tarde.","err");return}
+    save(d);$("ad-pw").value="";
+    // Comprobación en el servidor: ¿esta cuenta está en la tabla "admins"?
+    var ok=await api("POST","/rest/v1/rpc/is_admin",{});
+    if(ok!==true){await endSession("Esta cuenta no tiene permisos de administrador.","err");return}
+    say("ad-lst","");await enter();
+  }catch(err){if(String(err.message)!=="auth")say("ad-lst","No se ha podido conectar. Inténtalo de nuevo.","err")}
+  finally{busy=false;$("ad-go").disabled=false}
+});
+$("ad-out").addEventListener("click",function(){endSession("Sesión cerrada.","ok")});
+
+// ---- datos ---------------------------------------------------------------
+async function load(){
+  say("ad-pst","Cargando…");
+  try{
+    items=await api("GET","/rest/v1/proposals?select=id,created_at,title,body,is_anonymous,author_name,author_email,status&order=created_at.desc&limit=1000");
+    say("ad-pst","");render();
+  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se han podido cargar las propuestas.","err")}
+}
+async function enter(){view("panel");bump();await load()}
+
+async function setStatus(p,s){
+  if(!UUID.test(p.id)||p.status===s)return;
+  try{
+    var rows=await api("PATCH","/rest/v1/proposals?id=eq."+p.id,{status:s},{Prefer:"return=representation"});
+    if(!Array.isArray(rows)||rows.length!==1)throw new Error("noop");
+    p.status=rows[0].status;say("ad-pst","Marcada como "+STATUS[p.status].toLowerCase()+".","ok");render(p.id);
+  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se ha podido cambiar el estado.","err")}
+}
+async function remove(p){
+  if(!UUID.test(p.id))return;
+  if(!confirm("¿Eliminar esta propuesta para siempre?\n\n«"+p.title+"»\n\nNo se puede deshacer."))return;
+  try{
+    var rows=await api("DELETE","/rest/v1/proposals?id=eq."+p.id,undefined,{Prefer:"return=representation"});
+    if(!Array.isArray(rows)||rows.length!==1)throw new Error("noop");
+    items=items.filter(function(x){return x.id!==p.id});say("ad-pst","Propuesta eliminada.","ok");render();
+  }catch(err){if(String(err.message)!=="auth")say("ad-pst","No se ha podido eliminar.","err")}
+}
+
+// ---- pintado -------------------------------------------------------------
+function fmt(iso){try{return new Date(iso).toLocaleString("es-ES",{dateStyle:"medium",timeStyle:"short"})}catch(e){return iso}}
+function render(openId){
+  var chips=$("ad-chips");chips.textContent="";
+  var counts={all:items.length,pending:0,reviewed:0,resolved:0};items.forEach(function(p){if(counts[p.status]!==undefined)counts[p.status]++});
+  [["all","Todas"],["pending","Pendientes"],["reviewed","Revisadas"],["resolved","Resueltas"]].forEach(function(c){
+    var b=el("button",{type:"button","class":"ad-chip","aria-pressed":String(filter===c[0]),text:c[1]+" ("+counts[c[0]]+")"});
+    b.addEventListener("click",function(){filter=c[0];render()});chips.appendChild(b)});
+  chips.appendChild(el("span",{"class":"ad-spacer"}));
+  var rb=el("button",{type:"button","class":"ad-btn ad-sec",text:"Actualizar"});rb.addEventListener("click",load);chips.appendChild(rb);
+
+  var list=$("ad-list");list.textContent="";
+  var vis=items.filter(function(p){return filter==="all"||p.status===filter});
+  if(!vis.length){list.appendChild(el("p",{"class":"ad-empty",text:items.length?"No hay propuestas en este estado.":"Todavía no has recibido ninguna propuesta."}));return}
+  vis.forEach(function(p){
+    var d=el("details",{"class":"ad-p"});d.style.setProperty("--c",COLOR[p.status]||"var(--line)");if(OPEN[p.id]||p.id===openId)d.open=true;
+    d.addEventListener("toggle",function(){if(d.open)OPEN[p.id]=1;else delete OPEN[p.id]});
+    d.appendChild(el("summary",{},[
+      el("div",{"class":"ad-meta"},[fmt(p.created_at),el("span",{"class":"ad-badge"+p.status,text:STATUS[p.status]||p.status}),el("span",{"class":"ad-badge",text:p.is_anonymous?"Anónima":"Identificada"})]),
+      el("h3",{text:p.title})]));
+    var inner=el("div",{"class":"ad-inner"});
+    inner.appendChild(el("p",{"class":"ad-body",text:p.body}));
+    if(p.is_anonymous){inner.appendChild(el("div",{"class":"ad-who",text:"Envío anónimo: no hay datos de contacto."}))}
+    else{
+      var a=el("a",{text:p.author_email||""});a.href="mailto:"+encodeURIComponent(p.author_email||"").replace(/%40/g,"@");
+      inner.appendChild(el("div",{"class":"ad-who"},[el("strong",{text:"Nombre: "}),String(p.author_name||""),el("br"),el("strong",{text:"Correo: "}),a]))}
+    var acts=el("div",{"class":"ad-acts"},[el("strong",{"class":"ad-sans",text:"Estado:"})]);
+    Object.keys(STATUS).forEach(function(s){
+      var b=el("button",{type:"button","class":"ad-chip","aria-pressed":String(p.status===s),text:STATUS[s]});
+      b.addEventListener("click",function(){setStatus(p,s)});acts.appendChild(b)});
+    acts.appendChild(el("span",{"class":"ad-spacer"}));
+    var del=el("button",{type:"button","class":"ad-btn ad-danger",text:"Eliminar"});del.addEventListener("click",function(){remove(p)});acts.appendChild(del);
+    inner.appendChild(acts);d.appendChild(inner);list.appendChild(d);
+  });
+}
+
+// ---- arranque y enrutado: el panel se abre con la dirección  tu-web/#admin ----
+async function boot(){
+  if(!CONFIGURED){view("login");$("ad-go").disabled=true;say("ad-lst","El panel aún no está conectado: completa el bloque de configuración de index.html (ver SETUP.md).","err");return}
+  if(sess){
+    try{var ok=await api("POST","/rest/v1/rpc/is_admin",{});if(ok===true){await enter();return}await endSession("Esta cuenta no tiene permisos de administrador.","err");return}
+    catch(e){if(String(e.message)==="auth")return}
+  }
+  view("login");
+}
+var started=false;
+function route(){
+  var on=location.hash==="#admin",box=document.getElementById("adm");
+  box.hidden=!on;document.documentElement.style.overflow=on?"hidden":"";
+  if(on){if(!started){started=true;boot()}else box.scrollTop=0}
+}
+addEventListener("hashchange",route);route();
+})();
 </script>
 </body>
 </html>
