@@ -148,6 +148,15 @@ dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}d
 .logo-card:not(.in) .logo-animado *{animation-play-state:paused}
 /* PREGUNTAS */
 .ask{padding:110px 0}
+/* SANTOS DEL DÍA */
+.sto{background:var(--amber);color:var(--ink);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.sto .sub{color:#2f4a63;font-size:1.1rem;margin:0 0 30px}
+.sto .hoy{font:800 clamp(1.5rem,5vw,2.4rem) "Bricolage Grotesque",sans-serif;margin:8px 0 6px}
+.sbtn{background:linear-gradient(100deg,var(--ink),#0a4d8c,#0099FF,#0a4d8c,var(--ink));background-size:200% 100%;animation:sFlow 3.5s linear infinite;color:#fff;font-size:1.15rem;padding:18px 38px;}
+.sbtn:hover{box-shadow:0 14px 34px rgba(4,38,74,.45)}
+.sbtn i{font-style:normal;display:inline-block;margin-left:12px;animation:sArrow 1.2s ease-in-out infinite}
+@keyframes sFlow{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes sArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
 /* CTA */
 .cta{text-align:center;padding:120px 20px;background:var(--amber);color:var(--ink);overflow:hidden}
 .cta h2{font-size:clamp(2.6rem,11vw,6rem);margin-bottom:22px}
@@ -160,7 +169,7 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 <nav id="nav">
   <a class="brand" href="#top"><svg viewBox="8 2 74 80" aria-hidden="true"><path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="#E0F354"/><g stroke="#04264a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M45 13V68M34 18L43 68M56 18L47 68M24 28L40 68M66 28L50 68M17 41L38 68M73 41L52 68"/></g></svg>Universitarios Sarrià</a>
   <button class="burger" id="bg" aria-label="Menú"><i></i><i></i></button>
-  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Preguntas y propuestas</a></div>
+  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#santo">Santos del día</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#preguntas">Preguntas y propuestas</a></div>
 </nav>
 
 <header class="hero" id="top">
@@ -224,6 +233,13 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
   <div class="ph p2 rv mk rb"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="-0.07"><circle cx="30" cy="30" r="30" fill="#fff" opacity=".25"/></svg><span>Amistad</span></div>
   <div class="ph p3 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.1"><circle cx="75" cy="60" r="34" fill="#66c2ff" opacity=".45"/></svg><span>Oración</span></div>
 </div></div>
+
+<section id="santo" class="sto"><div class="wrap">
+  <h2 class="rv up">Santos del día</h2>
+  <p class="hoy rv up" id="hoy"></p>
+  <p class="sub rv up">Aprende más sobre los santos de hoy.</p>
+  <a class="btn mag rv up sbtn" href="https://www.santopedia.com/" target="_blank" rel="noopener"><span>Santos de hoy</span><i aria-hidden="true">→</i></a>
+</div></section>
 
 <section id="biblioteca" class="lib"><div class="wrap">
   <h2 class="rv up">Charlas y recursos</h2>
@@ -313,6 +329,8 @@ var BOOKS=[
 ];
 document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#0099FF","#0077c2","#7d8a06","#0055b3"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
   return '<a class="bk rv up" style="--c:'+c+';transition-delay:'+(i%4*.08)+'s" href="'+esc(b.u)+'" target="_blank" rel="noopener"'+(ext?'':' download')+'><i>'+pad(i+1)+'</i><div><h3>'+esc(b.t)+'</h3><p>'+esc(b.d)+'</p><b>Descargar</b></div></a>'}).join("");
+// Santo del día: la fecha se calcula sola cada día
+(function(){var d=new Date();document.getElementById("hoy").textContent="Hoy es "+DAY[d.getDay()].toLowerCase()+" "+d.getDate()+" de "+ML[d.getMonth()]})();
 // Marquesina
 var t="Fe ✦ Comunidad ✦ Universidad ✦ Amistad ✦ Oración ✦ ";document.getElementById("mq").textContent=t.repeat(8);
 // Manifiesto palabra a palabra
