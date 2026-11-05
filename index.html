@@ -227,16 +227,8 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 
 <section id="biblioteca" class="lib"><div class="wrap">
   <h2 class="rv up">Charlas y recursos</h2>
-  <p class="sub rv up">Toca una tarjeta para abrirla. Filtra por tipo o busca por título.</p>
-  <div class="tools rv up">
-    <button class="chip" data-f="All" aria-pressed="true">Todo</button>
-    <button class="chip" data-f="Presentation" aria-pressed="false">Presentaciones</button>
-    <button class="chip" data-f="Document" aria-pressed="false">Documentos</button>
-    <button class="chip" data-f="Study" aria-pressed="false">Guías de estudio</button>
-    <input id="q" type="search" placeholder="Buscar charlas" aria-label="Buscar charlas">
-  </div>
+  <p class="sub rv up">Las charlas que hemos dado, con su material para descargar.</p>
   <div class="grid" id="grid"></div>
-  <p class="empty" id="empty" hidden>No hay resultados. Prueba con otra palabra o filtro.</p>
 </div></section>
 
 <section id="recursos" class="res"><div class="wrap">
@@ -266,31 +258,12 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 <script>
 var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
 function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
-// Edita esta lista: sustituye cada enlace por el de tu Google Drive, Dropbox o PDF.
+// Charlas con material descargable: t título, d fecha y ponente, u archivo.
 var ITEMS=[
- {t:"La fe en el día a día",k:"Presentation",d:"Presentación de la charla",u:"#"},
- {t:"El Sermón del Monte",k:"Presentation",d:"Presentación de la charla",u:"#"},
- {t:"La gracia explicada",k:"Document",d:"Apuntes de la charla",u:"#"},
- {t:"Diario de oración",k:"Document",d:"Para imprimir",u:"#"},
- {t:"Evangelio de Juan: semanas 1 a 4",k:"Study",d:"Guía de estudio",u:"#"},
- {t:"Salmos para los días difíciles",k:"Study",d:"Guía de estudio",u:"#"}
+ {t:"Aborto y Eutanasia",d:"Charla de Yago · 5 de febrero de 2026",u:"Charla_Eutanasia_y_Aborto.pdf"}
 ];
-var COL={Presentation:"#0099FF",Document:"#0077c2",Study:"#7d8a06"};
-var LBL={Presentation:"Presentación",Document:"Documento",Study:"Guía de estudio"};
-var f="All";
-function render(){
-  var q=document.getElementById("q").value.toLowerCase(),h="",n=0;
-  ITEMS.forEach(function(i){
-    if((f==="All"||i.k===f)&&i.t.toLowerCase().indexOf(q)>-1){
-      h+='<a class="tilt item" style="--c:'+COL[i.k]+';animation-delay:'+(n++*.07)+'s" href="'+esc(i.u)+'" target="_blank" rel="noopener"><span class="tag">'+LBL[i.k]+'</span><h3>'+esc(i.t)+'</h3><small>'+esc(i.d)+'</small><span class="arr">↗</span></a>';}
-  });
-  document.getElementById("grid").innerHTML=h;
-  document.getElementById("empty").hidden=n>0;
-}
-document.querySelectorAll(".chip").forEach(function(b){b.addEventListener("click",function(){
-  f=b.getAttribute("data-f");
-  document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});render();});});
-document.getElementById("q").addEventListener("input",render);render();
+document.getElementById("grid").innerHTML=ITEMS.map(function(i,n){
+  return '<a class="tilt item" style="--c:#0099FF;animation-delay:'+(n*.07)+'s" href="'+esc(i.u)+'" target="_blank" rel="noopener" download><span class="tag">Presentación</span><h3>'+esc(i.t)+'</h3><small>'+esc(i.d)+'</small><span class="arr">↓</span></a>'}).join("");
 // Reuniones: d:[año,mes,día], t:"Tema", p:"Ponente", r:[{n:"Nombre a mostrar",u:"archivo.pdf"}] (r es opcional).
 // Las reuniones pasadas se quedan en el calendario, más apagadas, y se llega a ellas con las flechas.
 var MEETS=[
@@ -335,6 +308,7 @@ function gcal(m){var ds=m.d[0]+pad(m.d[1])+pad(m.d[2]);return "https://calendar.
 // Recursos y libros: t título, d descripción, u archivo (PDF, PowerPoint…) o enlace.
 var BOOKS=[
  {t:"Catecismo de la Iglesia Católica",d:"La exposición completa de la fe católica, para consultar cuando surge una duda.",u:"catecismo-de-la-iglesia-catolica.pdf"},
+ {t:"YouCat: Catecismo joven de la Iglesia Católica",d:"El catecismo explicado para jóvenes, en preguntas y respuestas.",u:"YouCat.pdf"},
  {t:"Cartas del diablo a su sobrino",d:"C. S. Lewis. Un demonio veterano aconseja a su sobrino cómo tentar a un joven.",u:"cartas-del-diablo-a-su-sobrino.pdf"}
 ];
 document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#0099FF","#0077c2","#7d8a06","#0055b3"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
