@@ -122,6 +122,12 @@ h2{font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;margin:0 0 10px;letter-spac
 .cg button.d:hover{transform:scale(1.14) rotate(-3deg)}
 .cg button.d small{position:absolute;bottom:4px;font-size:.55rem;letter-spacing:.04em}
 .cg button.d.past{background:rgba(224,243,84,.35);animation:none;color:#fff}
+.cg button.d.f{background:#66c2ff;animation:glowf 2.4s ease-in-out infinite}
+.cg button.d.f.past{background:rgba(102,194,255,.35);animation:none;color:#fff}
+@keyframes glowf{50%{box-shadow:0 0 0 7px rgba(102,194,255,.28),0 0 26px rgba(102,194,255,.6)}}
+.leyenda{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:16px;font:600 .85rem "Bricolage Grotesque",sans-serif;color:#cfe6f7}
+.leyenda span{display:inline-flex;align-items:center;gap:8px}.leyenda i{width:14px;height:14px;border-radius:5px;display:inline-block}
+.leyenda .gm{background:var(--amber)}.leyenda .gf{background:#66c2ff}
 @keyframes glowd{50%{box-shadow:0 0 0 7px rgba(224,243,84,.28),0 0 26px rgba(224,243,84,.6)}}
 dialog{border:0;border-radius:24px;padding:26px 24px;width:min(92vw,420px);background:var(--card);color:var(--text)}
 dialog::backdrop{background:rgba(2,18,38,.7);backdrop-filter:blur(4px)}
@@ -255,7 +261,7 @@ footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-botto
 
 <section id="calendario" class="cal"><div class="wrap">
   <h2 class="rv up">Próximas reuniones</h2>
-  <p class="sub rv up">Nos reunimos los viernes a las 20:30. Pulsa un día resaltado para añadirlo a tu Google Calendar.</p>
+  <p class="sub rv up">Nos reunimos los viernes a las 20:30. Pulsa un día resaltado para ver los detalles y añadirlo a tu Google Calendar. En azul, las fechas importantes de la Iglesia.</p>
   <div id="nextcard" class="rv sc"></div>
   <div id="cal" class="rv up"></div>
 </div></section>
@@ -290,6 +296,66 @@ var MEETS=[
  {d:[2026,11,27],t:"La Palabra de Dios 2",p:"Román"},
  {d:[2026,12,11],t:"Teología del cuerpo 3",p:"Matrimonio"}
 ];
+// Fechas de la Iglesia (no son reuniones). Se calculan solas para cualquier año: no hace falta editar nada.
+// Desde noviembre de 2026 hasta diciembre de 2028. Para ampliar, cambia FEAST_END.
+var FEAST_START=[2026,11,1],FEAST_END=[2028,12,31];
+function buildFeasts(){
+  var out=[];
+  function D(y,m,d){return new Date(y,m-1,d,12)}
+  function add(dt,n){var r=new Date(dt.getTime());r.setDate(r.getDate()+n);return r}
+  function put(dt,t,i){out.push({d:[dt.getFullYear(),dt.getMonth()+1,dt.getDate()],t:t,i:i})}
+  function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=(h+l-7*m+114)%31+1;return D(y,mo,da)}
+  for(var y=2026;y<=2028;y++){
+    var E=easter(y);
+    put(D(y,1,1),"Santa María, Madre de Dios","Solemnidad de María y Jornada Mundial de la Paz.");
+    put(D(y,1,6),"Epifanía del Señor (Reyes Magos)","Los Magos de Oriente adoran al Niño Jesús.");
+    var ep=D(y,1,6),bp=add(ep,ep.getDay()===0?1:7-ep.getDay());
+    put(bp,"Bautismo del Señor","Termina el tiempo de Navidad.");
+    put(D(y,2,2),"Presentación del Señor","La Candelaria: Jesús es presentado en el Templo.");
+    put(add(E,-46),"Miércoles de Ceniza","Comienza la Cuaresma, cuarenta días de preparación para la Pascua. Día de ayuno y abstinencia.");
+    var jo=D(y,3,19);if(jo.getDay()===0)jo=add(jo,1);
+    put(jo,"San José","Solemnidad de san José, esposo de la Virgen María.");
+    var an=D(y,3,25);if(an>=add(E,-7)&&an<=add(E,7))an=add(E,8);else if(an.getDay()===0)an=add(an,1);
+    put(an,"La Anunciación del Señor","El ángel anuncia a María que será la madre de Jesús.");
+    put(add(E,-7),"Domingo de Ramos","Comienza la Semana Santa: la entrada de Jesús en Jerusalén.");
+    put(add(E,-3),"Jueves Santo","Última Cena: institución de la Eucaristía y del sacerdocio. Lavatorio de los pies.");
+    put(add(E,-2),"Viernes Santo","Pasión y muerte del Señor. Día de ayuno y abstinencia.");
+    put(add(E,-1),"Sábado Santo","Jesús en el sepulcro. Por la noche, Vigilia Pascual.");
+    put(E,"Domingo de Resurrección (Pascua)","Cristo ha resucitado: la fiesta central de la fe cristiana.");
+    put(add(E,7),"Domingo de la Divina Misericordia","Segundo domingo de Pascua, con el que termina la octava de Pascua.");
+    put(add(E,42),"La Ascensión del Señor","Jesús sube al cielo. En España se celebra el domingo.");
+    put(add(E,49),"Pentecostés","La venida del Espíritu Santo sobre los apóstoles. Termina el tiempo pascual.");
+    put(add(E,56),"Santísima Trinidad","Solemnidad de Dios, uno y trino.");
+    put(add(E,63),"Corpus Christi","Solemnidad del Cuerpo y la Sangre de Cristo. En España suele celebrarse el domingo.");
+    put(add(E,68),"Sagrado Corazón de Jesús","Solemnidad del Corazón de Cristo, el viernes siguiente al Corpus.");
+    put(D(y,6,24),"Natividad de san Juan Bautista","Nacimiento de Juan, el precursor del Señor.");
+    put(D(y,6,29),"San Pedro y san Pablo","Solemnidad de los apóstoles Pedro y Pablo.");
+    put(D(y,7,25),"Santiago apóstol","Fiesta de Santiago, patrón de España.");
+    put(D(y,8,6),"Transfiguración del Señor","Jesús se transfigura ante Pedro, Santiago y Juan en el monte Tabor.");
+    put(D(y,8,15),"La Asunción de la Virgen","Solemnidad de la Asunción de María al cielo.");
+    put(D(y,9,14),"Exaltación de la Santa Cruz","Fiesta de la Cruz, signo de nuestra salvación.");
+    put(D(y,10,12),"Nuestra Señora del Pilar","Fiesta de la Virgen del Pilar, patrona de la Hispanidad.");
+    put(D(y,11,1),"Todos los Santos","Solemnidad de todos los santos, conocidos y anónimos.");
+    put(D(y,11,2),"Fieles Difuntos","Día de oración por los difuntos.");
+    var n24=D(y,12,25),a4=add(n24,-(n24.getDay()||7)),a1=add(a4,-21);
+    put(add(a1,-7),"Jesucristo, Rey del Universo","Último domingo del año litúrgico.");
+    put(a1,"1.er domingo de Adviento","Comienza el Adviento y un nuevo año litúrgico: cuatro semanas de preparación para la Navidad.");
+    put(add(a1,7),"2.º domingo de Adviento","Segundo domingo de Adviento.");
+    var im=D(y,12,8);if(im.getDay()===0)im=add(im,1);
+    put(im,"Inmaculada Concepción","Solemnidad de la Virgen María, concebida sin pecado original.");
+    put(add(a1,14),"3.er domingo de Adviento","Domingo «Gaudete» (de la alegría).");
+    put(a4,"4.º domingo de Adviento","Último domingo de Adviento, ya a las puertas de la Navidad.");
+    put(D(y,12,24),"Nochebuena","Vigilia de la Navidad.");
+    put(n24,"Navidad","Solemnidad del Nacimiento del Señor.");
+    var sf=null;for(var q=26;q<=31;q++)if(D(y,12,q).getDay()===0)sf=D(y,12,q);
+    put(sf||D(y,12,30),"La Sagrada Familia","Fiesta de Jesús, María y José.");
+  }
+  var k0=FEAST_START[0]*10000+FEAST_START[1]*100+FEAST_START[2],k1=FEAST_END[0]*10000+FEAST_END[1]*100+FEAST_END[2];
+  var seen={};
+  return out.filter(function(f){var k=f.d[0]*10000+f.d[1]*100+f.d[2];return k>=k0&&k<=k1}).sort(function(a,b){return(a.d[0]*10000+a.d[1]*100+a.d[2])-(b.d[0]*10000+b.d[1]*100+b.d[2])})
+  .filter(function(f){var k=f.d.join("-");if(seen[k]){seen[k].t+=" · "+f.t;seen[k].i+=" "+f.i;return false}seen[k]=f;return true});
+}
+var FEASTS=buildFeasts();
 var MON=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
 var DAY=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
 function box(dt){return '<div class="dbox"><span>'+MON[dt.getMonth()]+'</span><b>'+dt.getDate()+'</b></div>'}
@@ -298,13 +364,16 @@ function pad(n){return(n<10?"0":"")+n}
 function gcal(m){var ds=m.d[0]+pad(m.d[1])+pad(m.d[2]);return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Universitarios Sarrià"+(m.t?": "+m.t:""))+"&dates="+ds+"T203000/"+ds+"T220000&ctz=Europe/Madrid&location="+encodeURIComponent(PLACE)+"&details="+encodeURIComponent((m.t?"Tema: "+m.t:"Reunión del grupo Universitarios Sarrià")+(m.p?"\nPonente: "+m.p:""))}
 (function(){
   var now=new Date(),M=MEETS.map(function(m){return{d:m.d,t:m.t,p:m.p,r:m.r,dt:new Date(m.d[0],m.d[1]-1,m.d[2],23,59)}});
+  var F=FEASTS.map(function(f){return{d:f.d,t:f.t,i:f.i,dt:new Date(f.d[0],f.d[1]-1,f.d[2],23,59)}});
   var up=M.filter(function(m){return m.dt>=now}),nc=document.getElementById("nextcard"),cal=document.getElementById("cal"),dlg=document.getElementById("dlg");
-  var keys=[];M.forEach(function(m){var k=m.d[0]*100+m.d[1];if(keys.indexOf(k)<0)keys.push(k)});keys.sort();
+  var keys=[];M.concat(F).forEach(function(m){var k=m.d[0]*100+m.d[1];if(keys.indexOf(k)<0)keys.push(k)});keys.sort();
   if(!keys.length||!up.length){nc.innerHTML='<p>Aún no hay reuniones programadas. Vuelve pronto.</p>';return}
   var ci=keys.indexOf(up[0].d[0]*100+up[0].d[1]);
   function when(m){return DAY[m.dt.getDay()]+" "+m.d[2]+" de "+ML[m.d[1]-1]}
   function res(m){return m.r&&m.r.length?'<div class="rs"><strong>Material</strong>'+m.r.map(function(x){return '<a href="'+esc(x.u)+'" target="_blank" rel="noopener">'+esc(x.n)+' ↗</a>'}).join("")+'</div>':''}
-  function showM(m){dlg.innerHTML='<h3>'+esc(m.t||"Tema por anunciar")+'</h3><p><strong>'+when(m)+'</strong></p><p>'+TIME+' h</p>'+(m.p?'<p>Ponente: <strong>'+esc(m.p)+'</strong></p>':'')+'<p>'+esc(PLACE)+'</p>'+res(m)+'<div class="dact">'+(m.dt<now?'':'<a class="btn" target="_blank" rel="noopener" href="'+gcal(m)+'">Añadir a Google Calendar</a>')+'<button class="btn x" id="dx" type="button">Cerrar</button></div>';dlg.showModal();document.getElementById("dx").onclick=function(){dlg.close()}}
+  function showM(m){dlg.innerHTML='<h3>'+esc(m.t||"Tema por anunciar")+'</h3><p><strong>'+when(m)+'</strong></p><p>'+TIME+' h</p>'+(m.p?'<p>Ponente: <strong>'+esc(m.p)+'</strong></p>':'')+'<p>'+esc(PLACE)+'</p>'+res(m)+fx(m)+'<div class="dact">'+(m.dt<now?'':'<a class="btn" target="_blank" rel="noopener" href="'+gcal(m)+'">Añadir a Google Calendar</a>')+'<button class="btn x" id="dx" type="button">Cerrar</button></div>';dlg.showModal();document.getElementById("dx").onclick=function(){dlg.close()}}
+  function fx(m){var f=F.filter(function(x){return x.d.join()===m.d.join()})[0];return f?'<p class="fx"><strong>Ese día también:</strong> '+esc(f.t)+'</p>':''}
+  function showF(f){dlg.innerHTML='<h3>'+esc(f.t)+'</h3><p><strong>'+when(f)+'</strong></p><p>'+esc(f.i)+'</p><div class="dact"><button class="btn x" id="dx" type="button">Cerrar</button></div>';dlg.showModal();document.getElementById("dx").onclick=function(){dlg.close()}}
   dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
   var n=up[0];
   nc.innerHTML='<div class="nextcard">'+box(n.dt)+'<div><span class="badge">Próxima</span><h3>'+esc(n.t||"Tema por anunciar")+'</h3><p>'+when(n)+' · '+TIME+' h</p>'+(n.p?'<p>Ponente: <strong>'+esc(n.p)+'</strong></p>':'')+'<a class="btn" target="_blank" rel="noopener" href="'+gcal(n)+'">Añadir a Google Calendar</a></div></div>';
@@ -314,10 +383,11 @@ function gcal(m){var ds=m.d[0]+pad(m.d[1])+pad(m.d[2]);return "https://calendar.
     ["L","M","X","J","V","S","D"].forEach(function(x){h+='<div class="h">'+x+'</div>'});
     for(var i=0;i<off;i++)h+='<div></div>';
     for(var d=1;d<=days;d++){var mi=-1;M.forEach(function(m,j){if(m.d[0]===y&&m.d[1]===mo&&m.d[2]===d)mi=j});
-      h+=mi>-1?'<button type="button" class="d'+(M[mi].dt<now?' past':'')+'" data-i="'+mi+'" aria-label="Reunión del '+d+' de '+ML[mo-1]+'">'+d+'<small>'+TIME+'</small></button>':'<div class="d">'+d+'</div>'}
-    cal.innerHTML=h+'</div>';
+      var fi=-1;F.forEach(function(f,j){if(f.d[0]===y&&f.d[1]===mo&&f.d[2]===d)fi=j});
+      h+=mi>-1?'<button type="button" class="d'+(M[mi].dt<now?' past':'')+'" data-i="'+mi+'" aria-label="Reunión del '+d+' de '+ML[mo-1]+'">'+d+'<small>'+TIME+'</small></button>':fi>-1?'<button type="button" class="d f'+(F[fi].dt<now?' past':'')+'" data-f="'+fi+'" aria-label="'+esc(F[fi].t)+', '+d+' de '+ML[mo-1]+'">'+d+'</button>':'<div class="d">'+d+'</div>'}
+    cal.innerHTML=h+'</div><div class="leyenda"><span><i class="gm"></i>Reunión</span><span><i class="gf"></i>Fecha de la Iglesia</span></div>';
     document.getElementById("cp").onclick=function(){ci--;draw()};document.getElementById("cn").onclick=function(){ci++;draw()};
-    cal.querySelectorAll("button.d").forEach(function(b){b.onclick=function(){showM(M[b.dataset.i])}});
+    cal.querySelectorAll("button.d").forEach(function(b){b.onclick=function(){b.dataset.f!==undefined?showF(F[b.dataset.f]):showM(M[b.dataset.i])}});
   }
   draw();
 })();
