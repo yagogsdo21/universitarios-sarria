@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Universitarios Sarrià</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#04264a;--bg:#FDFDFE;--card:#fff;--text:#0a2a4a;--muted:#486680;--amber:#E0F354;--rose:#0099FF;--teal:#0077c2;--vio:#66c2ff;--line:#d3e3f0;
+box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#031d38;--card:#082f57;--text:#eef6fd;--muted:#9fc1de;--line:#144a7a}}
+:root[data-theme="dark"]{--bg:#031d38;--card:#082f57;--text:#eef6fd;--muted:#9fc1de;--line:#144a7a}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:18px/1.6 "Source Serif 4",Georgia,serif;overflow-x:hidden}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px;color:#fff;transition:background .4s,transform .4s}
+nav::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(4,38,74,.88);backdrop-filter:blur(10px);opacity:0;transition:opacity .4s}
+nav.solid::before{opacity:1}
+nav.hide{transform:translateY(-100%)}
+.brand{font:800 1.05rem "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.brand svg{height:30px;width:auto;flex:none}
+.links{display:flex;gap:26px}
+.links a{font:600 .95rem "Bricolage Grotesque",sans-serif;text-decoration:none;position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative;z-index:60}
+.burger i{position:absolute;left:10px;right:10px;height:2px;background:#fff;transition:transform .35s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:26px}
+.open .burger i:nth-child(1){transform:translateY(5px) rotate(45deg)}.open .burger i:nth-child(2){transform:translateY(-5px) rotate(-45deg)}
+@media(max-width:760px){.burger{display:block}
+.links{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;align-items:center;gap:22px;transform:translateY(-100%);visibility:hidden;transition:transform .55s cubic-bezier(.7,0,.2,1),visibility 0s .55s;z-index:55}
+.links a{font-size:2rem}.open .links{transform:none;visibility:visible;transition-delay:0s}}
+/* HERO */
+.hero{background:var(--ink);color:#fff;min-height:100svh;display:grid;place-items:center;text-align:center;padding:90px 20px 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg at 50% 40%,transparent 0 8%,rgba(224,243,84,.2) 10%,transparent 14% 30%,rgba(0,153,255,.18) 33%,transparent 37% 55%,rgba(0,119,194,.2) 58%,transparent 62% 80%,rgba(102,194,255,.2) 83%,transparent 88%);animation:spin 70s linear infinite}
+.hero>div{position:relative}
+.win{width:min(62vw,300px);margin:0 auto 26px;filter:drop-shadow(0 0 50px rgba(224,243,84,.5))}
+.win svg{width:100%;display:block;animation:spin 90s linear infinite}
+.petal{transform-origin:100px 100px;opacity:0;animation:glow .8s ease-out forwards}
+@keyframes glow{from{opacity:0;transform:rotate(var(--r)) scale(.2)}to{opacity:1;transform:rotate(var(--r)) scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(2.7rem,12vw,6.4rem);line-height:.98;margin:0 0 18px;font-weight:800;letter-spacing:-.03em}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln span{display:inline-block;transform:translateY(110%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
+.ln:nth-child(2) span{animation-delay:.2s;color:var(--amber)}.ln:nth-child(3) span{animation-delay:.4s}
+@keyframes up{to{transform:none}}
+.hero p{max-width:30em;margin:0 auto 28px;color:#cfe6f7;opacity:0;animation:fade 1s 1.3s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{display:inline-block;background:var(--amber);color:var(--ink);font:700 1rem "Bricolage Grotesque",sans-serif;padding:15px 30px;border-radius:999px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;will-change:transform}
+.btn:hover{box-shadow:0 10px 30px rgba(224,243,84,.45)}
+.fl{position:absolute;color:var(--amber);opacity:.7;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-22px) rotate(12deg)}}
+.cue{position:absolute;bottom:22px;left:50%;width:2px;height:44px;background:linear-gradient(var(--amber),transparent);transform-origin:top;animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+/* MARQUEE */
+.mq{background:var(--rose);color:#fff;transform:rotate(-2deg) scale(1.05);margin:-26px 0 0;position:relative;z-index:2;overflow:hidden;padding:14px 0;white-space:nowrap}
+.mq div{display:inline-block;font:800 1.5rem "Bricolage Grotesque",sans-serif;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* SECTIONS */
+section{position:relative}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+h2{font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;margin:0 0 10px;letter-spacing:-.02em}
+.sub{color:var(--muted);margin:0 0 28px}
+.mani{padding:110px 0 90px}
+.mani p{font:800 clamp(1.9rem,6.4vw,3.8rem)/1.12 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;margin:0}
+.w{display:inline-block;opacity:.16;margin-right:.26em;transition:opacity .35s,transform .35s;transform:translateY(6px)}
+.w.on{opacity:1;transform:none}.w.hl.on{color:var(--rose)}
+/* MOSAIC */
+.mos{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;padding:20px 0 110px}
+.ph{position:relative;border-radius:20px;overflow:hidden;min-height:240px;display:flex;align-items:flex-end;padding:18px;color:#fff;font:800 1.5rem "Bricolage Grotesque",sans-serif}
+.ph svg{position:absolute;inset:-12% 0;width:100%;height:124%;will-change:transform}
+.ph span{position:relative;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.p1{grid-column:1/8;grid-row:1/3;min-height:420px;background:linear-gradient(150deg,#0099FF,#66c2ff)}
+.p2{grid-column:8/13;margin-top:50px;background:linear-gradient(150deg,#E0F354,#0099FF)}
+.p3{grid-column:6/13;margin-left:-40px;background:linear-gradient(150deg,#0077c2,#04264a)}
+@media(max-width:700px){.p1,.p2,.p3{grid-column:1/13;margin:0;grid-row:auto;min-height:260px}}
+/* REVEALS */
+.rv{opacity:0;transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),clip-path 1.2s cubic-bezier(.7,0,.2,1)}
+.up{transform:translateY(46px)}.lf{transform:translateX(-70px)}.rt{transform:translateX(70px)}.sc{transform:scale(.88)}
+.mk{clip-path:inset(0 100% 0 0);opacity:1}.mk.rb{clip-path:inset(100% 0 0 0)}
+.rv.in{opacity:1;transform:none;clip-path:inset(0)}
+/* LIBRARY */
+.lib{padding:30px 0 110px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{font:600 .95rem "Bricolage Grotesque",sans-serif;padding:9px 18px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--text);cursor:pointer;transition:transform .2s,background .25s,color .25s}
+.chip:hover{transform:translateY(-2px)}.chip[aria-pressed="true"]{background:var(--rose);border-color:var(--rose);color:#fff}
+#q{flex:1 1 200px;font:inherit;padding:10px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--text)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));perspective:900px}
+.item{display:block;position:relative;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:16px;padding:20px 18px;text-decoration:none;transition:transform .25s ease-out,box-shadow .3s;transform-style:preserve-3d;overflow:hidden;animation:pop .6s both}
+@keyframes pop{from{opacity:0;transform:translateY(24px)}}
+.item::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(224,243,84,.22),transparent 60%);opacity:0;transition:opacity .3s}
+.item:hover{box-shadow:0 18px 34px rgba(4,38,74,.22)}.item:hover::after{opacity:1}
+.tag{font:700 .8rem "Bricolage Grotesque",sans-serif;color:var(--c)}
+.item h3{margin:6px 0 4px;font-size:1.2rem;line-height:1.25}.item small{color:var(--muted)}
+.arr{position:absolute;right:16px;bottom:12px;font-size:1.4rem;color:var(--c);transition:transform .3s}.item:hover .arr{transform:translate(4px,-4px)}
+.empty{color:var(--muted)}
+/* CALENDAR */
+.cal{background:linear-gradient(160deg,var(--ink),#0a4d8c 60%,var(--rose));color:#fff;padding:110px 0}
+.cal .sub{color:#cfe6f7}
+.dbox{background:var(--amber);color:var(--ink);border-radius:16px;min-width:84px;text-align:center;padding:10px;font-family:"Bricolage Grotesque",sans-serif;line-height:1;flex:none}
+.dbox b{display:block;font-size:2.4rem;font-weight:800}.dbox span{font-size:.9rem;font-weight:700;text-transform:uppercase}
+.nextcard{display:flex;gap:22px;align-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);border-radius:24px;padding:26px 24px;margin-bottom:14px}
+.nextcard .dbox{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(224,243,84,.25)}}
+.nextcard h3{margin:0 0 4px;font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.15}.nextcard p{margin:0;color:#cfe6f7}
+.badge{display:inline-block;background:var(--rose);font:700 .8rem "Bricolage Grotesque",sans-serif;padding:3px 12px;border-radius:999px;margin-bottom:8px}
+.row{display:flex;gap:16px;align-items:center;padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.2)}
+.row .dbox{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);min-width:66px;padding:8px}.row .dbox b{font-size:1.6rem}
+.row h3{margin:0;font-size:1.15rem}.row small{color:#cfe6f7}
+/* CALENDARIO */
+.cnav{display:flex;align-items:center;justify-content:space-between;margin:22px 0 12px}
+.cnav h3{margin:0;font-size:1.6rem;text-transform:capitalize}
+.cnav button{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:1.3rem;cursor:pointer;transition:transform .2s,background .2s}
+.cnav button:hover:not(:disabled){background:rgba(255,255,255,.18);transform:scale(1.08)}.cnav button:disabled{opacity:.3;cursor:default}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cg .h{text-align:center;font:700 .8rem "Bricolage Grotesque",sans-serif;color:#cfe6f7;padding:4px 0}
+.cg .d{aspect-ratio:1;display:grid;place-items:center;border-radius:14px;font:600 1rem "Bricolage Grotesque",sans-serif;color:rgba(255,255,255,.55);background:rgba(255,255,255,.06);border:0}
+.cg button.d{cursor:pointer;color:var(--ink);background:var(--amber);font-weight:800;font-size:1.3rem;position:relative;animation:glowd 2.4s ease-in-out infinite;transition:transform .25s}
+.cg button.d:hover{transform:scale(1.14) rotate(-3deg)}
+.cg button.d small{position:absolute;bottom:4px;font-size:.55rem;letter-spacing:.04em}
+.cg button.d.past{background:rgba(224,243,84,.35);animation:none;color:#fff}
+.cg button.d.f{background:#66c2ff;animation:glowf 2.4s ease-in-out infinite}
+.cg button.d.f.past{background:rgba(102,194,255,.35);animation:none;color:#fff}
+@keyframes glowf{50%{box-shadow:0 0 0 7px rgba(102,194,255,.28),0 0 26px rgba(102,194,255,.6)}}
+.leyenda{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:16px;font:600 .85rem "Bricolage Grotesque",sans-serif;color:#cfe6f7}
+.leyenda span{display:inline-flex;align-items:center;gap:8px}.leyenda i{width:14px;height:14px;border-radius:5px;display:inline-block}
+.leyenda .gm{background:var(--amber)}.leyenda .gf{background:#66c2ff}
+@keyframes glowd{50%{box-shadow:0 0 0 7px rgba(224,243,84,.28),0 0 26px rgba(224,243,84,.6)}}
+dialog{border:0;border-radius:24px;padding:26px 24px;width:min(92vw,420px);background:var(--card);color:var(--text)}
+dialog::backdrop{background:rgba(2,18,38,.7);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .35s both}dialog h3{margin:0 0 6px;font-size:1.6rem}dialog p{margin:4px 0}
+.dact{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.dact .btn{background:var(--rose);color:#fff;padding:12px 22px;border:0;cursor:pointer}
+.dact .x{background:transparent;color:var(--text);border:2px solid var(--line)}
+.nextcard .btn{margin-top:12px;padding:10px 20px;font-size:.95rem}
+.where{padding:100px 0 70px;text-align:center}.where p{font-size:1.15rem}
+.where iframe{display:block;width:100%;height:320px;border:0;border-radius:22px;margin:20px 0}.where .btn{background:var(--teal);color:#fff}
+.rs{margin-top:14px;display:grid;gap:8px}.rs a{display:block;padding:10px 14px;border-radius:12px;border:2px solid var(--line);text-decoration:none;font:600 .95rem "Bricolage Grotesque",sans-serif;transition:transform .2s,border-color .2s}.rs a:hover{transform:translateX(4px);border-color:var(--rose)}
+.res{padding:30px 0 110px}
+.bks{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.bk{display:flex;align-items:stretch;background:var(--card);border:1px solid var(--line);border-radius:18px;text-decoration:none;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,opacity .9s}
+.bk i{flex:none;width:64px;display:grid;place-items:center;background:var(--c);color:#fff;font:800 1.5rem "Bricolage Grotesque",sans-serif;transition:width .3s}
+.bk div{padding:16px;flex:1}
+.bk h3{margin:0 0 4px;font-size:1.15rem;line-height:1.25}
+.bk p{margin:0 0 10px;color:var(--muted);font-size:.95rem;line-height:1.45}
+.bk b{font:700 .85rem "Bricolage Grotesque",sans-serif;color:var(--c)}
+.bk b::after{content:" ↓";display:inline-block;transition:transform .3s}
+.bk:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(4,38,74,.2)}.bk:hover i{width:78px}.bk:hover b::after{transform:translateY(3px)}
+.logo-card.hero-logo{width:min(86vw,420px);margin:0 auto 26px;box-shadow:0 0 70px rgba(224,243,84,.4),0 24px 50px rgba(0,0,0,.35)}
+.logo-card{max-width:460px;margin:0 auto;background:#fff;border-radius:28px;padding:26px 22px;box-shadow:0 20px 50px rgba(4,38,74,.18)}
+.logo-card svg{display:block;width:100%;height:auto}
+.logo-card:not(.in) .logo-animado *{animation-play-state:paused}
+/* PREGUNTAS */
+.ask{padding:110px 0}
+/* SANTOS DEL DÍA */
+.sto{background:var(--amber);color:var(--ink);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.sto .sub{color:#2f4a63;font-size:1.1rem;margin:0 0 30px}
+.sto .hoy{font:800 clamp(1.5rem,5vw,2.4rem) "Bricolage Grotesque",sans-serif;margin:8px 0 6px}
+.sbtn{background:linear-gradient(100deg,var(--ink),#0a4d8c,#0099FF,#0a4d8c,var(--ink));background-size:200% 100%;animation:sFlow 3.5s linear infinite;color:#fff;font-size:1.15rem;padding:18px 38px;}
+.sbtn:hover{box-shadow:0 14px 34px rgba(4,38,74,.45)}
+.sbtn i{font-style:normal;display:inline-block;margin-left:12px;animation:sArrow 1.2s ease-in-out infinite}
+@keyframes sFlow{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes sArrow{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+.drv{background:#e3f3ff;color:var(--ink);padding:100px 0;text-align:center}
+.drv .sub{color:#35566f;margin:6px 0 28px}
+/* CTA */
+.cta{text-align:center;padding:120px 20px;background:var(--amber);color:var(--ink);overflow:hidden}
+.cta h2{font-size:clamp(2.6rem,11vw,6rem);margin-bottom:22px}
+.cta .btn{background:var(--ink);color:#fff}
+footer{text-align:center;padding:28px 20px calc(40px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.95rem}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="brand" href="#top"><svg viewBox="8 2 74 80" aria-hidden="true"><path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="#E0F354"/><g stroke="#04264a" stroke-width="3" stroke-linecap="round" fill="none"><path d="M45 13V68M34 18L43 68M56 18L47 68M24 28L40 68M66 28L50 68M17 41L38 68M73 41L52 68"/></g></svg>Universitarios Sarrià</a>
+  <button class="burger" id="bg" aria-label="Menú"><i></i><i></i></button>
+  <div class="links" id="ln"><a href="#nosotros">Nosotros</a><a href="#santo">Santos del día</a><a href="#biblioteca">Biblioteca</a><a href="#recursos">Recursos</a><a href="#calendario">Reuniones</a><a href="#drive">Material</a><a href="#preguntas">Preguntas y propuestas</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="fl" style="left:8%;top:24%;font-size:2rem">✦</span>
+  <span class="fl" style="right:10%;top:30%;font-size:1.4rem;animation-delay:-2s">✚</span>
+  <span class="fl" style="left:16%;bottom:20%;font-size:1.2rem;animation-delay:-4s">●</span>
+  <span class="fl" style="right:18%;bottom:24%;font-size:2.2rem;animation-delay:-1s">✦</span>
+  <div>
+    <div class="logo-card in hero-logo" data-p="-0.12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" class="logo-animado" aria-label="Logo de Universitarios Sarrià">
+  <style>
+    .logo-animado{--granate-oscuro:#0b4a82;--granate-brillante:#0099FF;--destello:#E0F354;overflow:visible}
+    .concha-grupo{transform-origin:400px 75px;animation:flotarConcha 5s ease-in-out infinite;cursor:pointer}
+    .rayo-concha{stroke-dasharray:100;stroke-dashoffset:100;animation:desplegarRayo 1.5s cubic-bezier(.2,.8,.2,1) forwards}
+    .rayo-central{animation-delay:.1s}.rayo-interno-izq,.rayo-interno-der{animation-delay:.25s}.rayo-medio-izq,.rayo-medio-der{animation-delay:.4s}.rayo-externo-izq,.rayo-externo-der{animation-delay:.55s}.rayo-borde-izq,.rayo-borde-der{animation-delay:.7s}
+    .texto-universitaris,.texto-sarria{fill:var(--granate-oscuro);transition:fill .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+    .texto-animado{animation:subirLetras .9s cubic-bezier(.2,.8,.2,1) forwards;opacity:0}
+    .texto-sarria{animation-delay:.3s}
+    .logo-animado:hover .concha-grupo{animation:balancearConcha 1.2s ease-in-out infinite alternate}
+    .logo-animado:hover .texto-universitaris,.logo-animado:hover .texto-sarria{fill:var(--granate-brillante);transform:translateY(-2px)}
+    .logo-animado:hover .rayo-concha{stroke:var(--destello);stroke-width:3.5px;transition:stroke .4s ease,stroke-width .4s ease}
+    @keyframes desplegarRayo{to{stroke-dashoffset:0}}
+    @keyframes flotarConcha{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.03)}}
+    @keyframes balancearConcha{0%{transform:rotate(-3deg) scale(1.04)}100%{transform:rotate(3deg) scale(1.04)}}
+    @keyframes subirLetras{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+  <g class="concha-grupo">
+    <g transform="translate(355, 10)">
+      <path d="M45 5 C32 5 18 20 11 38 C7 51 13 65 24 71 L22 80 L68 80 L66 71 C77 65 83 51 79 38 C72 20 58 5 45 5 Z" fill="var(--granate-oscuro)"/>
+      <g stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none">
+        <path class="rayo-concha rayo-central" d="M45 13 V68"/>
+        <path class="rayo-concha rayo-interno-izq" d="M34 18 L43 68"/>
+        <path class="rayo-concha rayo-interno-der" d="M56 18 L47 68"/>
+        <path class="rayo-concha rayo-medio-izq" d="M24 28 L40 68"/>
+        <path class="rayo-concha rayo-medio-der" d="M66 28 L50 68"/>
+        <path class="rayo-concha rayo-externo-izq" d="M17 41 L38 68"/>
+        <path class="rayo-concha rayo-externo-der" d="M73 41 L52 68"/>
+        <path class="rayo-concha rayo-borde-izq" d="M15 55 L37 68"/>
+        <path class="rayo-concha rayo-borde-der" d="M75 55 L53 68"/>
+      </g>
+    </g>
+  </g>
+  <g class="texto-animado texto-universitaris"><text x="400" y="195" font-family="'Source Serif 4','Georgia',serif" font-size="62" font-weight="700" letter-spacing="0.16em" text-anchor="middle">UNIVERSITARIS</text></g>
+  <g class="texto-animado texto-sarria"><text x="400" y="275" font-family="'Source Serif 4','Georgia',serif" font-size="70" font-weight="700" letter-spacing="0.18em" text-anchor="middle">SARRIÀ</text></g>
+</svg></div>
+    <h1><span class="ln"><span>Reunirnos.</span></span><span class="ln"><span>Aprender.</span></span><span class="ln"><span>Crecer.</span></span></h1>
+    <p>Bienvenido a Universitarios Sarrià. Todas las charlas, estudios y presentaciones que compartimos están aquí, a un toque.</p>
+    <a class="btn mag" href="#biblioteca">Abrir la biblioteca</a>
+  </div>
+  <div class="cue"></div>
+</header>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+
+<section id="nosotros" class="mani"><div class="wrap">
+  <p id="mani">Somos universitarios que se reúnen cada viernes para escuchar, preguntar y <em style="font-style:normal" class="hlw">crecer en la fe</em>, juntos.</p>
+</div></section>
+
+<div class="wrap"><div class="mos">
+  <div class="ph p1 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.08"><circle cx="70" cy="35" r="32" fill="#E0F354" opacity=".35"/><circle cx="25" cy="75" r="26" fill="#04264a" opacity=".3"/></svg><span>Charlas</span></div>
+  <div class="ph p2 rv mk rb"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="-0.07"><circle cx="30" cy="30" r="30" fill="#fff" opacity=".25"/></svg><span>Amistad</span></div>
+  <div class="ph p3 rv mk"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" data-p="0.1"><circle cx="75" cy="60" r="34" fill="#66c2ff" opacity=".45"/></svg><span>Oración</span></div>
+</div></div>
+
+<section id="santo" class="sto"><div class="wrap">
+  <h2 class="rv up">Santos del día</h2>
+  <p class="hoy rv up" id="hoy"></p>
+  <p class="sub rv up">Aprende más sobre los santos de hoy.</p>
+  <a class="btn mag rv up sbtn" href="https://www.santopedia.com/" target="_blank" rel="noopener"><span>Santos de hoy</span><i aria-hidden="true">→</i></a>
+</div></section>
+
+<section id="biblioteca" class="lib"><div class="wrap">
+  <h2 class="rv up">Charlas y recursos</h2>
+  <p class="sub rv up">Las charlas que hemos dado, con su material para descargar.</p>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="recursos" class="res"><div class="wrap">
+  <h2 class="rv up">Recursos y libros</h2>
+  <p class="sub rv up">Lo que usamos en el grupo. Toca uno para descargarlo.</p>
+  <div class="bks" id="bks"></div>
+</div></section>
+
+<section id="calendario" class="cal"><div class="wrap">
+  <h2 class="rv up">Próximas reuniones</h2>
+  <p class="sub rv up">Nos reunimos los viernes a las 20:30. Pulsa un día resaltado para ver los detalles y añadirlo a tu Google Calendar. En azul, las fechas importantes de la Iglesia.</p>
+  <div id="nextcard" class="rv sc"></div>
+  <div id="cal" class="rv up"></div>
+</div></section>
+
+<section id="drive" class="drv"><div class="wrap">
+  <h2 class="rv up">Todo el material</h2>
+  <p class="sub rv up">Charlas, presentaciones y documentos del grupo, reunidos en una carpeta de Drive.</p>
+  <a class="btn mag rv up" href="https://drive.google.com/drive/folders/1t3mkQ7um_GzaP4oHUHQ2JkINkeLnihVI?usp=drive_link" target="_blank" rel="noopener">Abrir la carpeta de Drive</a>
+</div></section>
+
+<section id="preguntas" class="ask"><div class="wrap">
+  <h2 class="rv up">Preguntas y propuestas</h2>
+  <p class="sub rv up">¿Tienes una duda o una idea para el grupo? Cuéntanosla.</p>
+  <a class="btn mag rv up" href="https://forms.gle/JpWRZJjb5nPm1MhR8" target="_blank" rel="noopener">Enviar una pregunta o propuesta</a>
+</div></section>
+
+<section class="cta"><h2 class="rv up">Ven un viernes.</h2><a class="btn mag rv up" href="#calendario">Ver próximas fechas</a></section>
+<section class="where" id="donde"><div class="wrap"><h2 class="rv up">Dónde nos vemos</h2><p class="rv up">Nos reunimos los viernes a las 20:30 en la parroquia de Sant Vicenç de Sarrià.</p><iframe class="rv sc" title="Mapa de la parroquia de Sant Vicenç de Sarrià" loading="lazy" src="https://maps.google.com/maps?q=Parroquia+de+Sant+Vicen%C3%A7+de+Sarri%C3%A0,+Barcelona&output=embed"></iframe><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Parroquia+de+Sant+Vicen%C3%A7+de+Sarri%C3%A0+Barcelona">Abrir en Google Maps</a></div></section>
+<dialog id="dlg"></dialog>
+<footer>Hecho para Universitarios Sarrià. Ven como eres.</footer>
+
+<script>
+var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+// Charlas con material descargable: t título, d fecha y ponente, u archivo.
+var ITEMS=[
+ {t:"Aborto y Eutanasia",d:"Charla de Yago · 5 de febrero de 2026",u:"https://drive.google.com/file/d/1gyWty4wWi2RgzMqaQDqKasg4wHQTVg9R/view?usp=drive_link"}
+];
+document.getElementById("grid").innerHTML=ITEMS.map(function(i,n){
+  return '<a class="tilt item" style="--c:#0099FF;animation-delay:'+(n*.07)+'s" href="'+esc(i.u)+'" target="_blank" rel="noopener"><span class="tag">Presentación</span><h3>'+esc(i.t)+'</h3><small>'+esc(i.d)+'</small><span class="arr">↓</span></a>'}).join("");
+// Reuniones: d:[año,mes,día], t:"Tema", p:"Ponente", r:[{n:"Nombre a mostrar",u:"archivo.pdf"}] (r es opcional).
+// Las reuniones pasadas se quedan en el calendario, más apagadas, y se llega a ellas con las flechas.
+var MEETS=[
+ {d:[2026,2,5],t:"Aborto y Eutanasia",p:"Yago",r:[{n:"Presentación: Aborto y Eutanasia (PDF)",u:"https://drive.google.com/file/d/1gyWty4wWi2RgzMqaQDqKasg4wHQTVg9R/view?usp=drive_link"}]},
+ {d:[2026,10,23],t:"Teología del cuerpo 1",p:"Albert y Mireia"},
+ {d:[2026,11,6],t:"Palabra de Dios",p:"Santi"},
+ {d:[2026,11,13],t:"Teología del cuerpo 2",p:"Albert y Mireia"},
+ {d:[2026,11,27],t:"La Palabra de Dios 2",p:"Román"},
+ {d:[2026,12,11],t:"Teología del cuerpo 3",p:"Albert y Mireia"}
+];
+// Fechas de la Iglesia (no son reuniones). Se calculan solas para cualquier año: no hace falta editar nada.
+// Desde noviembre de 2026 hasta diciembre de 2028. Para ampliar, cambia FEAST_END.
+var FEAST_START=[2026,11,1],FEAST_END=[2028,12,31];
+function buildFeasts(){
+  var out=[];
+  function D(y,m,d){return new Date(y,m-1,d,12)}
+  function add(dt,n){var r=new Date(dt.getTime());r.setDate(r.getDate()+n);return r}
+  function put(dt,t,i){out.push({d:[dt.getFullYear(),dt.getMonth()+1,dt.getDate()],t:t,i:i})}
+  function easter(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=(h+l-7*m+114)%31+1;return D(y,mo,da)}
+  for(var y=2026;y<=2028;y++){
+    var E=easter(y);
+    put(D(y,1,1),"Santa María, Madre de Dios","Solemnidad de María y Jornada Mundial de la Paz.");
+    put(D(y,1,6),"Epifanía del Señor (Reyes Magos)","Los Magos de Oriente adoran al Niño Jesús.");
+    var ep=D(y,1,6),bp=add(ep,ep.getDay()===0?1:7-ep.getDay());
+    put(bp,"Bautismo del Señor","Termina el tiempo de Navidad.");
+    put(D(y,2,2),"Presentación del Señor","La Candelaria: Jesús es presentado en el Templo.");
+    put(add(E,-46),"Miércoles de Ceniza","Comienza la Cuaresma, cuarenta días de preparación para la Pascua. Día de ayuno y abstinencia.");
+    var jo=D(y,3,19);if(jo.getDay()===0)jo=add(jo,1);
+    put(jo,"San José","Solemnidad de san José, esposo de la Virgen María.");
+    var an=D(y,3,25);if(an>=add(E,-7)&&an<=add(E,7))an=add(E,8);else if(an.getDay()===0)an=add(an,1);
+    put(an,"La Anunciación del Señor","El ángel anuncia a María que será la madre de Jesús.");
+    put(add(E,-7),"Domingo de Ramos","Comienza la Semana Santa: la entrada de Jesús en Jerusalén.");
+    put(add(E,-3),"Jueves Santo","Última Cena: institución de la Eucaristía y del sacerdocio. Lavatorio de los pies.");
+    put(add(E,-2),"Viernes Santo","Pasión y muerte del Señor. Día de ayuno y abstinencia.");
+    put(add(E,-1),"Sábado Santo","Jesús en el sepulcro. Por la noche, Vigilia Pascual.");
+    put(E,"Domingo de Resurrección (Pascua)","Cristo ha resucitado: la fiesta central de la fe cristiana.");
+    put(add(E,7),"Domingo de la Divina Misericordia","Segundo domingo de Pascua, con el que termina la octava de Pascua.");
+    put(add(E,42),"La Ascensión del Señor","Jesús sube al cielo. En España se celebra el domingo.");
+    put(add(E,49),"Pentecostés","La venida del Espíritu Santo sobre los apóstoles. Termina el tiempo pascual.");
+    put(add(E,56),"Santísima Trinidad","Solemnidad de Dios, uno y trino.");
+    put(add(E,63),"Corpus Christi","Solemnidad del Cuerpo y la Sangre de Cristo. En España suele celebrarse el domingo.");
+    put(add(E,68),"Sagrado Corazón de Jesús","Solemnidad del Corazón de Cristo, el viernes siguiente al Corpus.");
+    put(D(y,6,24),"Natividad de san Juan Bautista","Nacimiento de Juan, el precursor del Señor.");
+    put(D(y,6,29),"San Pedro y san Pablo","Solemnidad de los apóstoles Pedro y Pablo.");
+    put(D(y,7,25),"Santiago apóstol","Fiesta de Santiago, patrón de España.");
+    put(D(y,8,6),"Transfiguración del Señor","Jesús se transfigura ante Pedro, Santiago y Juan en el monte Tabor.");
+    put(D(y,8,15),"La Asunción de la Virgen","Solemnidad de la Asunción de María al cielo.");
+    put(D(y,9,14),"Exaltación de la Santa Cruz","Fiesta de la Cruz, signo de nuestra salvación.");
+    put(D(y,10,12),"Nuestra Señora del Pilar","Fiesta de la Virgen del Pilar, patrona de la Hispanidad.");
+    put(D(y,11,1),"Todos los Santos","Solemnidad de todos los santos, conocidos y anónimos.");
+    put(D(y,11,2),"Fieles Difuntos","Día de oración por los difuntos.");
+    var n24=D(y,12,25),a4=add(n24,-(n24.getDay()||7)),a1=add(a4,-21);
+    put(add(a1,-7),"Jesucristo, Rey del Universo","Último domingo del año litúrgico.");
+    put(a1,"1.er domingo de Adviento","Comienza el Adviento y un nuevo año litúrgico: cuatro semanas de preparación para la Navidad.");
+    put(add(a1,7),"2.º domingo de Adviento","Segundo domingo de Adviento.");
+    var im=D(y,12,8);if(im.getDay()===0)im=add(im,1);
+    put(im,"Inmaculada Concepción","Solemnidad de la Virgen María, concebida sin pecado original.");
+    put(add(a1,14),"3.er domingo de Adviento","Domingo «Gaudete» (de la alegría).");
+    put(a4,"4.º domingo de Adviento","Último domingo de Adviento, ya a las puertas de la Navidad.");
+    put(D(y,12,24),"Nochebuena","Vigilia de la Navidad.");
+    put(n24,"Navidad","Solemnidad del Nacimiento del Señor.");
+    var sf=null;for(var q=26;q<=31;q++)if(D(y,12,q).getDay()===0)sf=D(y,12,q);
+    put(sf||D(y,12,30),"La Sagrada Familia","Fiesta de Jesús, María y José.");
+  }
+  var k0=FEAST_START[0]*10000+FEAST_START[1]*100+FEAST_START[2],k1=FEAST_END[0]*10000+FEAST_END[1]*100+FEAST_END[2];
+  var seen={};
+  return out.filter(function(f){var k=f.d[0]*10000+f.d[1]*100+f.d[2];return k>=k0&&k<=k1}).sort(function(a,b){return(a.d[0]*10000+a.d[1]*100+a.d[2])-(b.d[0]*10000+b.d[1]*100+b.d[2])})
+  .filter(function(f){var k=f.d.join("-");if(seen[k]){seen[k].t+=" · "+f.t;seen[k].i+=" "+f.i;return false}seen[k]=f;return true});
+}
+var FEASTS=buildFeasts();
+var MON=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+var DAY=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+function box(dt){return '<div class="dbox"><span>'+MON[dt.getMonth()]+'</span><b>'+dt.getDate()+'</b></div>'}
+var TIME="20:30",PLACE="Parroquia de Sant Vicenç de Sarrià, Barcelona",ML=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+function pad(n){return(n<10?"0":"")+n}
+function gcal(m){var ds=m.d[0]+pad(m.d[1])+pad(m.d[2]);return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Universitarios Sarrià"+(m.t?": "+m.t:""))+"&dates="+ds+"T203000/"+ds+"T220000&ctz=Europe/Madrid&location="+encodeURIComponent(PLACE)+"&details="+encodeURIComponent((m.t?"Tema: "+m.t:"Reunión del grupo Universitarios Sarrià")+(m.p?"\nPonente: "+m.p:""))}
+(function(){
+  var now=new Date(),M=MEETS.map(function(m){return{d:m.d,t:m.t,p:m.p,r:m.r,dt:new Date(m.d[0],m.d[1]-1,m.d[2],23,59)}});
+  var F=FEASTS.map(function(f){return{d:f.d,t:f.t,i:f.i,dt:new Date(f.d[0],f.d[1]-1,f.d[2],23,59)}});
+  var up=M.filter(function(m){return m.dt>=now}),nc=document.getElementById("nextcard"),cal=document.getElementById("cal"),dlg=document.getElementById("dlg");
+  var keys=[];M.concat(F).forEach(function(m){var k=m.d[0]*100+m.d[1];if(keys.indexOf(k)<0)keys.push(k)});keys.sort();
+  if(!keys.length||!up.length){nc.innerHTML='<p>Aún no hay reuniones programadas. Vuelve pronto.</p>';return}
+  var ci=keys.indexOf(up[0].d[0]*100+up[0].d[1]);
+  function when(m){return DAY[m.dt.getDay()]+" "+m.d[2]+" de "+ML[m.d[1]-1]}
+  function res(m){return m.r&&m.r.length?'<div class="rs"><strong>Material</strong>'+m.r.map(function(x){return '<a href="'+esc(x.u)+'" target="_blank" rel="noopener">'+esc(x.n)+' ↗</a>'}).join("")+'</div>':''}
+  function showM(m){dlg.innerHTML='<h3>'+esc(m.t||"Tema por anunciar")+'</h3><p><strong>'+when(m)+'</strong></p><p>'+TIME+' h</p>'+(m.p?'<p>Ponente: <strong>'+esc(m.p)+'</strong></p>':'')+'<p>'+esc(PLACE)+'</p>'+res(m)+fx(m)+'<div class="dact">'+(m.dt<now?'':'<a class="btn" target="_blank" rel="noopener" href="'+gcal(m)+'">Añadir a Google Calendar</a>')+'<button class="btn x" id="dx" type="button">Cerrar</button></div>';dlg.showModal();document.getElementById("dx").onclick=function(){dlg.close()}}
+  function fx(m){var f=F.filter(function(x){return x.d.join()===m.d.join()})[0];return f?'<p class="fx"><strong>Ese día también:</strong> '+esc(f.t)+'</p>':''}
+  function showF(f){dlg.innerHTML='<h3>'+esc(f.t)+'</h3><p><strong>'+when(f)+'</strong></p><p>'+esc(f.i)+'</p><div class="dact"><button class="btn x" id="dx" type="button">Cerrar</button></div>';dlg.showModal();document.getElementById("dx").onclick=function(){dlg.close()}}
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+  var n=up[0];
+  nc.innerHTML='<div class="nextcard">'+box(n.dt)+'<div><span class="badge">Próxima</span><h3>'+esc(n.t||"Tema por anunciar")+'</h3><p>'+when(n)+' · '+TIME+' h</p>'+(n.p?'<p>Ponente: <strong>'+esc(n.p)+'</strong></p>':'')+'<a class="btn" target="_blank" rel="noopener" href="'+gcal(n)+'">Añadir a Google Calendar</a></div></div>';
+  function draw(){
+    var k=keys[ci],y=Math.floor(k/100),mo=k%100,off=(new Date(y,mo-1,1).getDay()+6)%7,days=new Date(y,mo,0).getDate();
+    var h='<div class="cnav"><button type="button" id="cp" aria-label="Mes anterior"'+(ci?'':' disabled')+'>‹</button><h3>'+ML[mo-1]+' '+y+'</h3><button type="button" id="cn" aria-label="Mes siguiente"'+(ci<keys.length-1?'':' disabled')+'>›</button></div><div class="cg">';
+    ["L","M","X","J","V","S","D"].forEach(function(x){h+='<div class="h">'+x+'</div>'});
+    for(var i=0;i<off;i++)h+='<div></div>';
+    for(var d=1;d<=days;d++){var mi=-1;M.forEach(function(m,j){if(m.d[0]===y&&m.d[1]===mo&&m.d[2]===d)mi=j});
+      var fi=-1;F.forEach(function(f,j){if(f.d[0]===y&&f.d[1]===mo&&f.d[2]===d)fi=j});
+      h+=mi>-1?'<button type="button" class="d'+(M[mi].dt<now?' past':'')+'" data-i="'+mi+'" aria-label="Reunión del '+d+' de '+ML[mo-1]+'">'+d+'<small>'+TIME+'</small></button>':fi>-1?'<button type="button" class="d f'+(F[fi].dt<now?' past':'')+'" data-f="'+fi+'" aria-label="'+esc(F[fi].t)+', '+d+' de '+ML[mo-1]+'">'+d+'</button>':'<div class="d">'+d+'</div>'}
+    cal.innerHTML=h+'</div><div class="leyenda"><span><i class="gm"></i>Reunión</span><span><i class="gf"></i>Fecha de la Iglesia</span></div>';
+    document.getElementById("cp").onclick=function(){ci--;draw()};document.getElementById("cn").onclick=function(){ci++;draw()};
+    cal.querySelectorAll("button.d").forEach(function(b){b.onclick=function(){b.dataset.f!==undefined?showF(F[b.dataset.f]):showM(M[b.dataset.i])}});
+  }
+  draw();
+})();
+// Recursos y libros: t título, d descripción, u archivo (PDF, PowerPoint…) o enlace.
+var BOOKS=[
+ {t:"Catecismo de la Iglesia Católica",d:"La exposición completa de la fe católica, para consultar cuando surge una duda.",u:"https://drive.google.com/file/d/1LxePbWZ_U9VePxzmzV0hbRDz87CrxkzX/view?usp=drive_link"},
+ {t:"YouCat: Catecismo joven de la Iglesia Católica",d:"El catecismo explicado para jóvenes, en preguntas y respuestas.",u:"https://drive.google.com/file/d/1TnHJWIrAdXSG0hL7yjI9kLGFpNO6dg7K/view?usp=drive_link"},
+ {t:"Cartas del diablo a su sobrino",d:"C. S. Lewis. Un demonio veterano aconseja a su sobrino cómo tentar a un joven.",u:"https://drive.google.com/file/d/1S2pKuoLKk452TdrDyanzq0mp3sa_ZpPJ/view?usp=drive_link"},
+ {t:"Las Confesiones",d:"San Agustín. Su camino de conversión, contado como una larga oración a Dios.",u:"https://drive.google.com/file/d/18zcDStJmY_iZ9Njf5LYpyL239jK9rcDf/view?usp=drive_link"}
+];
+document.getElementById("bks").innerHTML=BOOKS.map(function(b,i){var c=["#0099FF","#0077c2","#7d8a06","#0055b3"][i%4],ext=/^https?:/.test(b.u)||b.u==="#";
+  return '<a class="bk rv up" style="--c:'+c+';transition-delay:'+(i%4*.08)+'s" href="'+esc(b.u)+'" target="_blank" rel="noopener"'+(ext?'':' download')+'><i>'+pad(i+1)+'</i><div><h3>'+esc(b.t)+'</h3><p>'+esc(b.d)+'</p><b>'+(ext?'Abrir':'Descargar')+'</b></div></a>'}).join("");
+// Santo del día: la fecha se calcula sola cada día
+(function(){var d=new Date();document.getElementById("hoy").textContent="Hoy es "+DAY[d.getDay()].toLowerCase()+" "+d.getDate()+" de "+ML[d.getMonth()]})();
+// Marquesina
+var t="Fe ✦ Comunidad ✦ Universidad ✦ Amistad ✦ Oración ✦ ";document.getElementById("mq").textContent=t.repeat(8);
+// Manifiesto palabra a palabra
+var mp=document.getElementById("mani"),W=[];
+(function w(n,hl){[].slice.call(n.childNodes).forEach(function(c){
+  if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/\s+/).filter(Boolean).forEach(function(x){var sp=document.createElement("span");sp.className="w"+(hl?" hl":"");sp.textContent=x;f.appendChild(sp);W.push(sp)});c.replaceWith(f)}
+  else w(c,hl||(c.classList&&c.classList.contains("hlw")))})})(mp,false);
+// Revelados al entrar
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll(":scope > .mk").forEach(function(m){m.classList.add("in")});io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(el){RM?el.classList.add("in"):io.observe(el.classList.contains("mk")?el.parentNode:el)});
+// Scroll: parallax, manifiesto, navegación
+var nav=document.getElementById("nav"),ps=[].slice.call(document.querySelectorAll("[data-p]")),lastY=0,tick=false;
+function frame(){
+  tick=false;var y=scrollY,vh=innerHeight;
+  nav.classList.toggle("solid",y>40);nav.classList.toggle("hide",y>lastY&&y>300&&!nav.classList.contains("open"));lastY=y;
+  if(RM){W.forEach(function(x){x.classList.add("on")});return}
+  ps.forEach(function(el){var r=el.parentNode.getBoundingClientRect();if(r.bottom<-100||r.top>vh+100)return;
+    el.style.transform="translate3d(0,"+((r.top+r.height/2-vh/2)*el.dataset.p)+"px,0)"});
+  var r=mp.getBoundingClientRect(),p=Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.3)));
+  W.forEach(function(x,i){x.classList.toggle("on",i<p*W.length*1.05)});
+}
+addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});frame();
+// Menú móvil
+var bg=document.getElementById("bg");
+function tgl(){nav.classList.toggle("open");nav.classList.remove("hide")}
+bg.addEventListener("click",tgl);
+document.querySelectorAll("#ln a").forEach(function(a){a.addEventListener("click",function(){nav.classList.remove("open")})});
+// Tarjetas 3D y botones magnéticos
+if(!RM&&matchMedia("(hover:hover)").matches){
+  document.addEventListener("mousemove",function(e){
+    var c=e.target.closest&&e.target.closest(".tilt");
+    if(c){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.transform="rotateY("+(x-.5)*10+"deg) rotateX("+(.5-y)*10+"deg) translateZ(6px)";c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%")}
+    document.querySelectorAll(".mag").forEach(function(b){var r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+      b.style.transform=Math.hypot(dx,dy)<110?"translate("+dx*.25+"px,"+dy*.25+"px)":""});
+  });
+  document.addEventListener("mouseout",function(e){var c=e.target.closest&&e.target.closest(".tilt");if(c)c.style.transform=""});
+}
+</script>
+</body>
+</html>
